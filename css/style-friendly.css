@@ -1609,11 +1609,6 @@ hero 1
     width: 50vw;
   }
 }
-@media (max-height: 800px) {
-  .mil-hero-1 .mil-hero-main {
-    height: auto;
-  }
-}
 
 @-webkit-keyframes levitate-lg {
   0% {
