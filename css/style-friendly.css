@@ -4131,8 +4131,9 @@ tapes
   .mil-tapes-frame .mil-tape-1, .mil-tapes-frame .mil-tape-2 {
     top: 32%;
   }
-  .mil-tapes-frame .mil-deco {
-    display: none;
+
+  .mil-tapes-frame .mil-deco img {
+    width: 30%;
   }
 }
 @media (max-width: 500px) {

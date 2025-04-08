@@ -4145,7 +4145,10 @@ tapes
     top: 32%;
   }
   .mil-tapes-frame .mil-deco {
-    display: none;
+    top: 60px;
+  }
+  .mil-tapes-frame .mil-deco img {
+    width: 10%;
   }
 }
 @media (max-width: 500px) {
