@@ -2,8 +2,8 @@
 
 Name: 		 Birfikiriz
 Version:     1.0
-Developer:   Nazar Miller (millerDigitalDesign)
-Portfolio:   https://themeforest.net/user/millerdigitaldesign/portfolio?ref=MillerDigitalDesign
+Developer:   Birfikiriz (Birfikiriz)
+Portfolio:   https://themeforest.net/user/Birfikiriz/portfolio?ref=Birfikiriz
 
 p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
    
