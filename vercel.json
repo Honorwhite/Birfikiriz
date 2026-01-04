@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/qrcode/:path*",
+      "destination": "/qrcode/index.html"
+    },
+    {
+      "source": "/((?!qrcode/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
