@@ -1,48 +1,3 @@
-/*==============================================
-Template Name: Echofy - Echofy NFT Portfolio HTML5 Template 
-Author:  https://themeforest.net/user/dreamit-solution
-Description: Description
-Version: 1.0.0
-Text Domain: Echofy
-Tags: consulting, finance, corporate, business, consultant, multipurpose, technology, it-solution, software, agency, company, portfolio, bangking, insurance, digital-agency, digital-marketing.
-================================================*/
-
-/*TABLE OF CONTENTS*/
-/*=====================
-01. Echofy Header Menu Area
-02. Echofy Nav Menu Area
-03. Echofy Hero Area
-04. Echofy About Area
-05. Echofy Service Area
-06. Echofy Services Details Area
-07. Echofy Faqs Area
-08. Echofy Skill Area
-09. Echofy Counter Area
-10. Echofy Process Area
-11. Echofy Project Area
-12. Echofy Project Details Area
-13. Echofy Team Area
-14. Echofy Testimonial Area
-15. Echofy Brand Area
-16. Echofy Donatione Area
-17. Echofy Donation Details Area
-18. Echofy Blog Area
-19. Echofy Blog List Area
-20. Echofy Blog 2column
-21. Echofy Blog Details Area
-22. Echofy Contact Area
-23. Echofy Footer Area
-24. Echofy Loader
-25. Echofy Scrollup
-26. Echofy Sideber
-27. Echofy Search
-28. Echofy Top Menu
-
-=======================*/
-
-
-
-
 /*---=================================
    <!--Echofy Top Header Area Css-->
 ==================================---*/
@@ -419,6 +374,7 @@ Tags: consulting, finance, corporate, business, consultant, multipurpose, techno
 .echofy-button {
     margin-top: 40px;
     display: inline-block;
+    position: relative;
 }
 
 .echofy-button a {
@@ -465,13 +421,13 @@ Tags: consulting, finance, corporate, business, consultant, multipurpose, techno
 }
 
 .echofy-button img.two {
-    position: relative;
-    left: -58px;
-    top: -2px;
-    opacity: 1;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
     transition: 0.5s;
     z-index: 1;
-    opacity: 0
 }
 
 .echofy-button:hover img.two {

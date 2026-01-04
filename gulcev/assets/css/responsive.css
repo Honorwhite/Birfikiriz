@@ -1680,6 +1680,12 @@
 
     .hero-content p {
         width: 70%;
+        margin: 20px auto 0;
+    }
+
+    .echofy-button.two {
+        padding-left: 0;
+        margin-top: 15px;
     }
 
     .about-thumb {
@@ -2552,6 +2558,12 @@
 
     .hero-content p {
         width: 70%;
+        margin: 20px auto 0;
+    }
+
+    .echofy-button.two {
+        padding-left: 0;
+        margin-top: 15px;
     }
 
     .hero-slides .owl-dots {
@@ -3736,6 +3748,12 @@
 
     .hero-content p {
         width: 73%;
+        margin: 20px auto 0;
+    }
+
+    .echofy-button.two {
+        padding-left: 0;
+        margin-top: 15px;
     }
 
     .hero-slides .owl-dots {
@@ -4959,6 +4977,7 @@
     .hero-content p {
         width: 100%;
         font-size: 16px;
+        margin: 20px auto 0;
     }
 
     .hero-slides .owl-dots {
