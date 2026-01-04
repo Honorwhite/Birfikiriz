@@ -1,9 +1,9 @@
 RewriteEngine On
 
-# Allow assets and files
-RewriteRule ^assets/ - [L]
+# Allow real files and assets
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# React SPA fallback
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# SPA fallback for React Router
 RewriteRule . /qrcode/index.html [L]
