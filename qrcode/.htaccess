@@ -1,9 +1,9 @@
 RewriteEngine On
 
-# Allow real files and assets
+# If the request is for a real file or directory, serve it
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# SPA fallback for React Router
-RewriteRule . /qrcode/index.html [L]
+# Otherwise, always serve React app
+RewriteRule ^ index.html [L]
