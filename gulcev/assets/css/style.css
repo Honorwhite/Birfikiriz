@@ -1,5 +1,5 @@
 /*---=================================
-   <!--Echofy Top Header Area Css-->
+   <!--gulcev Top Header Area Css-->
 ==================================---*/
 .top-header-area {
     padding: 11px 0;
@@ -64,7 +64,7 @@
 }
 
 /*---=================================
-   <!--Echofy Header Area Css-->
+   <!--gulcev Header Area Css-->
 ==================================---*/
 
 .header-area {
@@ -253,7 +253,7 @@
 
 
 /*---=================================
-   <!--Echofy Hero Area Css-->
+   <!--gulcev Hero Area Css-->
 ==================================---*/
 .hero-area {
     background: url(../images/home1/hero-bg-1.jpg);
@@ -370,14 +370,14 @@
 }
 
 
-/*Echofy--button*/
-.echofy-button {
+/*gulcev--button*/
+.gulcev-button {
     margin-top: 40px;
     display: inline-block;
     position: relative;
 }
 
-.echofy-button a {
+.gulcev-button a {
     display: inline-block;
     background: #49AF45;
     color: #fff;
@@ -390,11 +390,11 @@
     z-index: 1;
 }
 
-.echofy-button a:hover {
+.gulcev-button a:hover {
     color: #49AF45;
 }
 
-.echofy-button a:before {
+.gulcev-button a:before {
     position: absolute;
     content: "";
     width: 0;
@@ -407,12 +407,12 @@
     transition: 0.5s;
 }
 
-.echofy-button a:hover:before {
+.gulcev-button a:hover:before {
     width: 100%;
     left: 0;
 }
 
-.echofy-button img {
+.gulcev-button img {
     position: relative;
     top: -2px;
     left: 4px;
@@ -420,7 +420,7 @@
     transition: 0.5s;
 }
 
-.echofy-button img.two {
+.gulcev-button img.two {
     position: absolute;
     right: 30px;
     top: 50%;
@@ -430,18 +430,18 @@
     z-index: 1;
 }
 
-.echofy-button:hover img.two {
+.gulcev-button:hover img.two {
     opacity: 1;
 }
 
 
-.echofy-button.two {
+.gulcev-button.two {
     display: inline-block;
     padding-left: 16px;
     border: transparent;
 }
 
-.echofy-button.two a {
+.gulcev-button.two a {
     display: inline-block;
     background: transparent;
     border: 2px solid #ffffff61;
@@ -452,9 +452,9 @@
 
 /*
 <!-- =====================================-->
-<!-- Start echofy-text-section  -->
+<!-- Start gulcev-text-section  -->
 <!-- =====================================-->*/
-.echofy-text-section {
+.gulcev-text-section {
     position: relative;
     background: #49AF45;
     z-index: 1;
@@ -462,7 +462,7 @@
 }
 
 @media (max-width: 450px) {
-    .echofy-text-section {
+    .gulcev-text-section {
         position: relative;
         background: #49AF45;
         z-index: 1;
@@ -470,12 +470,12 @@
     }
 }
 
-.echofy-text-section .inner-container {
+.gulcev-text-section .inner-container {
     max-width: 1812px;
     margin: 0 auto;
 }
 
-.echofy-text-section .marquee {
+.gulcev-text-section .marquee {
     position: relative;
     --duration: 30s;
     --gap: 0px;
@@ -490,7 +490,7 @@
     gap: 0px;
 }
 
-.echofy-text-section .marquee-block {
+.gulcev-text-section .marquee-block {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     display: -webkit-box;
@@ -507,24 +507,24 @@
     animation: scroll 30s linear infinite;
 }
 
-.echofy-text-section .marquee-block .content-box {
+.gulcev-text-section .marquee-block .content-box {
     position: relative;
     margin-right: 0px;
 }
 
-.echofy-text-section .marquee-block .content-box:last-child {
+.gulcev-text-section .marquee-block .content-box:last-child {
     margin-right: 0px;
 }
 
-.echofy-text-section .marquee-block .content-box:last-child::before {
+.gulcev-text-section .marquee-block .content-box:last-child::before {
     display: none;
 }
 
-.echofy-text-section .marquee-block .content-box .title {
+.gulcev-text-section .marquee-block .content-box .title {
     margin: 0;
 }
 
-.echofy-text-section .marquee-block .content-box h6.title {
+.gulcev-text-section .marquee-block .content-box h6.title {
     display: inline-block;
     font-size: 30px;
     color: #fff;
@@ -532,7 +532,7 @@
     padding: 0 48px;
 }
 
-.echofy-text-section .marquee-block .content-box h6.title img {
+.gulcev-text-section .marquee-block .content-box h6.title img {
     position: relative;
     left: -49px;
 }
@@ -568,7 +568,7 @@
 
 
 /*---=================================
-   <!--Echofy About Area Css-->
+   <!--gulcev About Area Css-->
 ==================================---*/
 .about-area {
     background: url(../images/home1/about-bg.jpg);
@@ -744,7 +744,7 @@ p.section-desc {
 
 
 /*---=================================
-   <!--Echofy Service Area Css-->
+   <!--gulcev Service Area Css-->
 ==================================---*/
 .service-area {
     padding: 113px 0 125px;
@@ -906,7 +906,7 @@ p.section-desc {
 
 
 /*---=================================
-   <!--Echofy Skill Area Css-->
+   <!--gulcev Skill Area Css-->
 ==================================---*/
 
 .skill-area {
@@ -1098,7 +1098,7 @@ span.number {
 }
 
 /*---=================================
-   <!--Echofy Counter Area Css-->
+   <!--gulcev Counter Area Css-->
 ==================================---*/
 .counter-area {
     background: url(../images/home1/counter-bg.jpg);
@@ -1135,7 +1135,7 @@ span.number {
 
 
 /*---=================================
-   <!--Echofy Counter Area Css-->
+   <!--gulcev Counter Area Css-->
 ==================================---*/
 #poress-row {
     background: #F6F6EE;
@@ -1167,7 +1167,7 @@ span.number {
 
 
 /*---=================================
-   <!--Echofy Project Area Css-->
+   <!--gulcev Project Area Css-->
 ==================================---*/
 .project-area {
     background: url(../images/home1/project-bg.jpg);
@@ -1329,7 +1329,7 @@ a.project-button:hover i {
 
 
 /*---=================================
-   <!--Echofy Process Area Two-->
+   <!--gulcev Process Area Two-->
 ==================================---*/
 .process-area-two {
     background: #F6F6EE;
@@ -1413,7 +1413,7 @@ a.project-button:hover i {
 
 
 /*---=================================
-   <!--Echofy Testimonial Area-->
+   <!--gulcev Testimonial Area-->
 ==================================---*/
 
 .testimonial-area {
@@ -1540,7 +1540,7 @@ p.testi-desc {
 }
 
 /*---=================================
-   <!--Echofy Brand Area-->
+   <!--gulcev Brand Area-->
 ==================================---*/
 .brand-area {
     position: relative;
@@ -1600,7 +1600,7 @@ p.testi-desc {
 }
 
 /*---=================================
-   <!--Echofy Team Area-->
+   <!--gulcev Team Area-->
 ==================================---*/
 .team-area {
     padding: 192px 0 125px;
@@ -1707,13 +1707,13 @@ p.testi-desc {
 
 
 /*---=================================
-   <!--Echofy Blog Area-->
+   <!--gulcev Blog Area-->
 ==================================---*/
 .blog-area {
     padding: 113px 0 103px;
 }
 
-.blog-area .echofy-button {
+.blog-area .gulcev-button {
     margin-top: 60px;
     display: inline-block;
     float: right;
@@ -1799,7 +1799,7 @@ p.testi-desc {
 
 
 /*---=================================
-   <!--Echofy Footer Area-->
+   <!--gulcev Footer Area-->
 ==================================---*/
 .footer-area {
     background: url(../images/home1/footer-bg.jpg);
@@ -2005,7 +2005,7 @@ p.footer-desc {
 
 
 /*---==============================================================
-   <!--Echofy Home Two Area-->
+   <!--gulcev Home Two Area-->
 ===============================================================---*/
 .top-header-area.home-two {
     background-color: #001819;
@@ -2061,7 +2061,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Hero Area Home Two-->
+   <!--gulcev Hero Area Home Two-->
 ==================================---*/
 .hero-area.home-two {
     background: url(../images/home2/hero-bg.jpg);
@@ -2129,7 +2129,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy About Area Home Two-->
+   <!--gulcev About Area Home Two-->
 ==================================---*/
 
 .home-two.about-area {
@@ -2265,14 +2265,14 @@ p.footer-desc {
     margin-top: 6px;
 }
 
-.home-two.about-area .echofy-button {
+.home-two.about-area .gulcev-button {
     margin-top: 0;
     display: inline-block;
 }
 
 
 /*---=================================
-   <!--Echofy Servics Title Area Home Two-->
+   <!--gulcev Servics Title Area Home Two-->
 ==================================---*/
 .service-title-area {
     background: url(../images/home2/services-title-bg.jpg);
@@ -2303,7 +2303,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Servics Area Home Two-->
+   <!--gulcev Servics Area Home Two-->
 ==================================---*/
 
 .service-area.home-two {
@@ -2454,7 +2454,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Counter Area Home Two-->
+   <!--gulcev Counter Area Home Two-->
 ==================================---*/
 
 .home-two.counter-area {
@@ -2493,7 +2493,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Project Area Home Two-->
+   <!--gulcev Project Area Home Two-->
 ==================================---*/
 .project-area.home-two {
     background: #fff;
@@ -2593,7 +2593,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Faqs Area Home Two-->
+   <!--gulcev Faqs Area Home Two-->
 ==================================---*/
 .faqs-area {
     background: url(../images/home2/faqs-bg.jpg);
@@ -2611,7 +2611,7 @@ p.footer-desc {
     margin-bottom: 36px;
 }
 
-.faqs-area .echofy-button {
+.faqs-area .gulcev-button {
     margin-top: 0;
     display: inline-block;
 }
@@ -2717,7 +2717,7 @@ p.footer-desc {
 
 
 /*---=================================
-   <!--Echofy Brand Area Home Two-->
+   <!--gulcev Brand Area Home Two-->
 ==================================---*/
 .brand-area.home-two {
     padding: 100px 0 87px;
@@ -2735,7 +2735,7 @@ p.footer-desc {
 
 
 /*---===============================================
-   <!--Echofy Donatione Title Area Home Two-->
+   <!--gulcev Donatione Title Area Home Two-->
 ===================================================---*/
 .donation-title-area {
     background: url(../images/home2/services-title-bg.jpg);
@@ -2765,7 +2765,7 @@ p.footer-desc {
 }
 
 /*---=================================
-   <!--Echofy Donatione Area Home Two-->
+   <!--gulcev Donatione Area Home Two-->
 ==================================---*/
 .donation-area {
     background-color: #f1faf0;
@@ -2875,7 +2875,7 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy Testimonial Area Home Two-->
+   <!--gulcev Testimonial Area Home Two-->
 ==================================---*/
 .home-two.testimonial-area {
     background: url(../images/home2/testi-bg.jpg);
@@ -2948,7 +2948,7 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy Marquee Area Home Two-->
+   <!--gulcev Marquee Area Home Two-->
 ==================================---*/
 
 .home-two.marquee {
@@ -3000,16 +3000,16 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy Footer Area Home Two-->
+   <!--gulcev Footer Area Home Two-->
 ==================================---*/
 
-.home-two.footer-area .echofy-button {
+.home-two.footer-area .gulcev-button {
     margin-top: 0;
     display: inherit;
     text-align: right;
 }
 
-.home-two.footer-area .echofy-button a {
+.home-two.footer-area .gulcev-button a {
     border: 1px solid #fff;
     background: transparent;
 }
@@ -3179,7 +3179,7 @@ span.price {
 
 
 /*---=====================================================================================
-   <!--Strat Echofy Home Three-->
+   <!--Strat gulcev Home Three-->
 ========================================================================================---*/
 .home-three.header-area {
     border-bottom: transparent;
@@ -3231,7 +3231,7 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy Text Area Home Three-->
+   <!--gulcev Text Area Home Three-->
 ==================================---*/
 
 .home-three.text-area {
@@ -3263,7 +3263,7 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy Hero Area Home Three-->
+   <!--gulcev Hero Area Home Three-->
 ==================================---*/
 
 .home-three.hero-area {
@@ -3283,11 +3283,11 @@ span.price {
     letter-spacing: 30px;
 }
 
-.style-two.echofy-button {
+.style-two.gulcev-button {
     margin-top: 28px;
 }
 
-.style-two.echofy-button a {
+.style-two.gulcev-button a {
     display: inline-block;
     background: #49AF45;
     color: #fff;
@@ -3299,11 +3299,11 @@ span.price {
     transition: 0.5s;
 }
 
-.style-two.echofy-button a:hover {
+.style-two.gulcev-button a:hover {
     color: #49AF45;
 }
 
-.style-two.echofy-button i {
+.style-two.gulcev-button i {
     display: inline-block;
     color: #fff;
     font-size: 18px;
@@ -3313,7 +3313,7 @@ span.price {
     transition: 0.5s;
 }
 
-.style-two.echofy-button a:hover i {
+.style-two.gulcev-button a:hover i {
     color: #49AF45;
 }
 
@@ -3321,7 +3321,7 @@ span.price {
 
 
 /*---=================================
-   <!--Echofy About Area Home Three-->
+   <!--gulcev About Area Home Three-->
 ==================================---*/
 .home-three.about-area {
     background: #fff;
@@ -3404,7 +3404,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy service Title Area Home Three-->
+   <!--gulcev service Title Area Home Three-->
 ===================================================---*/
 .home-three.service-title-area {
     background: #F6F7F9;
@@ -3504,13 +3504,13 @@ span.price {
     transform: scale(1);
 }
 
-.home-three.services-area.echofy-button {
+.home-three.services-area.gulcev-button {
     margin-top: 58px;
 }
 
 
 /*---================================================
-   <!--Echofy Counter Area Home Three-->
+   <!--gulcev Counter Area Home Three-->
 ===================================================---*/
 .home-three.counter-area {
     background: url(../images/home3/counter-bg.jpg);
@@ -3572,7 +3572,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Project Area Home Three-->
+   <!--gulcev Project Area Home Three-->
 ===================================================---*/
 .home-three.project-area {
     background: #fff;
@@ -3587,7 +3587,7 @@ span.price {
     margin-bottom: 70px;
 }
 
-.home-three.project-area .style-two.echofy-button {
+.home-three.project-area .style-two.gulcev-button {
     float: right;
     margin-top: 44px;
 }
@@ -3638,7 +3638,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Skill Area Home Three-->
+   <!--gulcev Skill Area Home Three-->
 ===================================================---*/
 .home-three.skill-area {
     background: url(../images/home3/skills-bg.jpg);
@@ -3785,7 +3785,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Testimonial Area Home Three-->
+   <!--gulcev Testimonial Area Home Three-->
 ===================================================---*/
 .home-three.testimonial-area {
     background: url(../images/home3/testi-bg.jpg);
@@ -3850,7 +3850,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Faqs Area Home Three-->
+   <!--gulcev Faqs Area Home Three-->
 ===================================================---*/
 .home-three.faqs-area {
     background: #fff;
@@ -3872,7 +3872,7 @@ span.price {
 }
 
 /*---================================================
-   <!--Echofy Blog Area Home Three-->
+   <!--gulcev Blog Area Home Three-->
 ===================================================---*/
 .home-three.blog-area {
     background: #F5F7F9;
@@ -3968,7 +3968,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Footer Area Home Three-->
+   <!--gulcev Footer Area Home Three-->
 ===================================================---*/
 .home-three.footer-area {
     background: url(../images/home3/footer-bg.jpg);
@@ -4082,7 +4082,7 @@ span.price {
 }
 
 /*---================================================
-   <!--Echofy Strat Home Four Css-->
+   <!--gulcev Strat Home Four Css-->
 ===================================================---*/
 
 
@@ -4196,7 +4196,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat Hero Area Home Four Css-->
+   <!--gulcev Strat Hero Area Home Four Css-->
 ===================================================---*/
 
 .home-four.hero-area {
@@ -4256,11 +4256,11 @@ span.price {
     z-index: -1;
 }
 
-.style-three.echofy-button {
+.style-three.gulcev-button {
     display: inline-block;
 }
 
-.style-three.echofy-button a {
+.style-three.gulcev-button a {
     display: inline-block;
     background: #49AF45;
     color: #fff;
@@ -4270,15 +4270,15 @@ span.price {
     border-radius: 0;
 }
 
-.style-three.echofy-button a:hover {
+.style-three.gulcev-button a:hover {
     color: #49AF45;
 }
 
-.style-three.echofy-button i {
+.style-three.gulcev-button i {
     transition: 0.5s;
 }
 
-.style-three.echofy-button a:hover i {
+.style-three.gulcev-button a:hover i {
     color: #49AF45;
 }
 
@@ -4301,7 +4301,7 @@ span.price {
 }
 
 /*---================================================
-   <!--Echofy Strat Counter Area Home Four Css-->
+   <!--gulcev Strat Counter Area Home Four Css-->
 ===================================================---*/
 
 .home-four.counter-area {
@@ -4360,7 +4360,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat About Area Home Four Css-->
+   <!--gulcev Strat About Area Home Four Css-->
 ===================================================---*/
 .home-four.about-area {
     background: url(../images/home4/about-bg.jpg);
@@ -4463,7 +4463,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat Services Area Home Four Css-->
+   <!--gulcev Strat Services Area Home Four Css-->
 ===================================================---*/
 .home-four.service-area {
     background: #fff;
@@ -4503,7 +4503,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat Solar Text Area Home Four Css-->
+   <!--gulcev Strat Solar Text Area Home Four Css-->
 ===================================================---*/
 .home-four.solar-text-area {
     background: url(../images/home4/solar-text-bg.jpg);
@@ -4523,7 +4523,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat Skill Area Home Four Css-->
+   <!--gulcev Strat Skill Area Home Four Css-->
 ===================================================---*/
 .home-four.skill-area {
     background: url(../images/home4/skill-bg.jpg);
@@ -4596,7 +4596,7 @@ span.price {
 
 
 /*---================================================
-   <!--Echofy Strat Testimonial Area Home Four Css-->
+   <!--gulcev Strat Testimonial Area Home Four Css-->
 ===================================================---*/
 
 .home-four.testimonial-area {
@@ -4686,7 +4686,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Info Area Home Four Css-->
+   <!--gulcev Strat Info Area Home Four Css-->
 =========================================================---*/
 
 .home-four.info-area .row.nariye-abu {
@@ -4734,7 +4734,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Blog Area Home Four Css-->
+   <!--gulcev Strat Blog Area Home Four Css-->
 =========================================================---*/
 .home-four .blog-content {
     border: 1px solid rgba(0, 24, 25, 0.1);
@@ -4795,7 +4795,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Call-Do-Action Area Home Four Css-->
+   <!--gulcev Strat Call-Do-Action Area Home Four Css-->
 =========================================================---*/
 .home-four.call-do-action-area {
     background: url(../images/home4/call-do-action-bg.jpg);
@@ -4812,13 +4812,13 @@ span.price {
     font-weight: 600;
 }
 
-.home-four.call-do-action-area .style-three.echofy-button {
+.home-four.call-do-action-area .style-three.gulcev-button {
     display: inline-block;
     margin: 0;
     float: right;
 }
 
-.home-four.call-do-action-area .style-three.echofy-button a {
+.home-four.call-do-action-area .style-three.gulcev-button a {
     display: inline-block;
     background: #00181A;
     color: #fff;
@@ -4829,13 +4829,13 @@ span.price {
     transition: 0.5s;
 }
 
-.home-four.call-do-action-area .style-three.echofy-button a:hover {
+.home-four.call-do-action-area .style-three.gulcev-button a:hover {
     color: #00181A;
 }
 
 
 /*---=====================================================
-   <!--Echofy Strat Footer Area Home Four Css-->
+   <!--gulcev Strat Footer Area Home Four Css-->
 =========================================================---*/
 .home-four.footer-area {
     background: url(../images/home4/footer-bg.jpg);
@@ -4944,7 +4944,7 @@ span.price {
 
 
 /*---==================================================================================
-   <!--Echofy Strat Home Five Css-->
+   <!--gulcev Strat Home Five Css-->
 ========================================================================================---*/
 
 .home-five .top-header-menu ul li {
@@ -4981,7 +4981,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Hero Area Home Five Css-->
+   <!--gulcev Strat Hero Area Home Five Css-->
 =========================================================---*/
 
 .home-five.hero-area {
@@ -5111,17 +5111,17 @@ span.price {
 }
 
 /*button-style*/
-.style-four.echofy-button {
+.style-four.gulcev-button {
     border-radius: 5px;
 }
 
-.style-four.echofy-button a {
+.style-four.gulcev-button a {
     text-transform: uppercase;
     font-size: 15px;
     border-radius: 0px;
 }
 
-.style-four.echofy-button i {
+.style-four.gulcev-button i {
     color: #fff;
     display: inline-block;
     position: relative;
@@ -5129,13 +5129,13 @@ span.price {
     transition: 0.5s;
 }
 
-.style-four.echofy-button a:hover i {
+.style-four.gulcev-button a:hover i {
     color: #49AF45;
 }
 
 
 /*---=====================================================
-   <!--Echofy Strat Video Area Home Five Css-->
+   <!--gulcev Strat Video Area Home Five Css-->
 =========================================================---*/
 .home-five.video-area {
     margin-top: -336px;
@@ -5179,7 +5179,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Animal Area Home Five Css-->
+   <!--gulcev Strat Animal Area Home Five Css-->
 =========================================================---*/
 .home-five.animal-area {
     background: #F5F5F5;
@@ -5256,7 +5256,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat About Area Home Five Css-->
+   <!--gulcev Strat About Area Home Five Css-->
 =========================================================---*/
 .home-five.about-area {
     background: transparent;
@@ -5340,7 +5340,7 @@ span.price {
     margin-bottom: 8px;
 }
 
-.home-five.about-area .echofy-button {
+.home-five.about-area .gulcev-button {
     margin-top: 0;
 }
 
@@ -5423,7 +5423,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Gallery Area Home Five Css-->
+   <!--gulcev Strat Gallery Area Home Five Css-->
 =========================================================---*/
 
 .home-five.gallery-area {
@@ -5434,7 +5434,7 @@ span.price {
     margin-bottom: 62px;
 }
 
-.home-five.gallery-area .style-four.echofy-button {
+.home-five.gallery-area .style-four.gulcev-button {
     float: right;
     margin-top: 50px;
 }
@@ -5491,14 +5491,14 @@ span.price {
 }
 
 /*---=====================================================
-   <!--Echofy Strat Contact info Area Home Five Css-->
+   <!--gulcev Strat Contact info Area Home Five Css-->
 =========================================================---*/
 .home-five.contact-info-area {
     background-color: #001819;
     padding: 53px 0 62px;
 }
 
-.home-five.contact-info-area .echofy-button {
+.home-five.contact-info-area .gulcev-button {
     margin-top: 0;
 }
 
@@ -5555,7 +5555,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Event Area Home Five Css-->
+   <!--gulcev Strat Event Area Home Five Css-->
 =========================================================---*/
 .home-five.event-area {
     padding: 100px 0 100px;
@@ -5703,7 +5703,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Donation Area Home Five Css-->
+   <!--gulcev Strat Donation Area Home Five Css-->
 =========================================================---*/
 .home-five.donation-area {
     background-color: #E9EBEA;
@@ -5779,7 +5779,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Testimonial Area Home Five Css-->
+   <!--gulcev Strat Testimonial Area Home Five Css-->
 =========================================================---*/
 .home-five.testimonial-area {
     background: #fff;
@@ -5857,7 +5857,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Video Area Home Five Css-->
+   <!--gulcev Strat Video Area Home Five Css-->
 =========================================================---*/
 .home-five.animal-video-area {
     background: url(../images/home5/animal-video-bg.jpg);
@@ -5871,7 +5871,7 @@ span.price {
     color: #fff;
 }
 
-.home-five.animal-video-area .echofy-button {
+.home-five.animal-video-area .gulcev-button {
     margin-top: 0;
 }
 
@@ -5909,7 +5909,7 @@ span.price {
 }
 
 /*---=====================================================
-   <!--Echofy Strat Blog Area Home Five Css-->
+   <!--gulcev Strat Blog Area Home Five Css-->
 =========================================================---*/
 
 .home-five.blog-area {
@@ -5982,7 +5982,7 @@ span.price {
 }
 
 /*---=====================================================
-   <!--Echofy Strat Footer Area Home Five Css-->
+   <!--gulcev Strat Footer Area Home Five Css-->
 =========================================================---*/
 .home-five.footer-area {
     background: #00181A;
@@ -6156,7 +6156,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Breadcumb Area Css-->
+   <!--gulcev Strat Breadcumb Area Css-->
 =========================================================---*/
 
 .breadcumb-area {
@@ -6298,7 +6298,7 @@ span.price {
 
 
 /*---=====================================================
-   <!--Echofy Strat Services Details Area Css-->
+   <!--gulcev Strat Services Details Area Css-->
 =========================================================---*/
 
 .services-details-area {
@@ -6537,7 +6537,7 @@ p.services-details-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Project Details Area Css-->
+   <!--gulcev Strat Project Details Area Css-->
 =========================================================---*/
 
 .project-details-area {
@@ -6631,7 +6631,7 @@ a.project-details-text {
 
 
 /*---=====================================================
-   <!--Echofy Strat Blog Details Area Css-->
+   <!--gulcev Strat Blog Details Area Css-->
 =========================================================---*/
 .blog-details-area {
     padding: 100px 0 100px;
@@ -7147,7 +7147,7 @@ button.icons {
 
 
 /*---=====================================================
-   <!--Echofy Strat Donation Details Area Css-->
+   <!--gulcev Strat Donation Details Area Css-->
 =========================================================---*/
 .donation-details-area {
     padding: 100px 0 100px;
@@ -7521,7 +7521,7 @@ p.blog-list-desc {
 
 /*
 <!-- =================================== -->
-<!--Echofy Contact Area Css -->
+<!--gulcev Contact Area Css -->
 <!-- =================================== -->*/
 
 .contact-area {
@@ -7646,7 +7646,7 @@ p.blog-list-desc {
 
 
 /*---========================================================================
-   <!--Echofy Home Six  Css-->
+   <!--gulcev Home Six  Css-->
 ==================================================================---*/
 
 .home-six.header-area {
@@ -7704,7 +7704,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Hero Area Home Six  Css-->
+   <!--gulcev Hero Area Home Six  Css-->
 ======================================================---*/
 
 .hero-area.home-six {
@@ -7732,17 +7732,17 @@ p.blog-list-desc {
 
 /*home-six button*/
 
-.echofy-button.style-five a {
+.gulcev-button.style-five a {
     border-radius: 46px;
     font-size: 17px;
     font-weight: 600;
 }
 
-.home-six .echofy-button a:before {
+.home-six .gulcev-button a:before {
     border-radius: 30px;
 }
 
-.echofy-button.style-five i {
+.gulcev-button.style-five i {
     display: inline-block;
     font-size: 24px;
     position: relative;
@@ -7752,7 +7752,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Feature Area Home Six  Css-->
+   <!--gulcev Feature Area Home Six  Css-->
 ======================================================---*/
 .home-six .row.margin-top {
     margin-top: -67px;
@@ -7800,7 +7800,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Abour Area Home Six  Css-->
+   <!--gulcev Abour Area Home Six  Css-->
 ======================================================---*/
 .home-six.about-area {
     background: #fff;
@@ -7835,7 +7835,7 @@ p.blog-list-desc {
     margin-right: 15px;
 }
 
-.home-six.about-area .echofy-button {
+.home-six.about-area .gulcev-button {
     margin-top: 48px;
     display: inline-block;
 }
@@ -7889,7 +7889,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Services Title Area Home Six  Css-->
+   <!--gulcev Services Title Area Home Six  Css-->
 ======================================================---*/
 
 .home-six.services-title-area {
@@ -7982,7 +7982,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Why Choose Area Home Six  Css-->
+   <!--gulcev Why Choose Area Home Six  Css-->
 ======================================================---*/
 
 .home-six.why-choose-area {
@@ -8025,7 +8025,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Pricing Area Home Six  Css-->
+   <!--gulcev Pricing Area Home Six  Css-->
 ======================================================---*/
 
 .home-six.pricing-area {
@@ -8086,13 +8086,13 @@ p.blog-list-desc {
     border-radius: 50%;
 }
 
-.home-six.pricing-area .single-pricing-box .echofy-button {
+.home-six.pricing-area .single-pricing-box .gulcev-button {
     margin-top: 40px;
     display: inherit;
     text-align: center;
 }
 
-.home-six.pricing-area .single-pricing-box .echofy-button a {
+.home-six.pricing-area .single-pricing-box .gulcev-button a {
     padding: 15px 40px;
 }
 
@@ -8114,7 +8114,7 @@ p.blog-list-desc {
 
 
 /*---==================================================
-   <!--Echofy Team Area Home Six  Css-->
+   <!--gulcev Team Area Home Six  Css-->
 ======================================================---*/
 .home-six.team-area {
     padding: 122px 0 125px;
@@ -8225,7 +8225,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Skill Area Home Six Css-->
+   <!--gulcev Strat Skill Area Home Six Css-->
 =========================================================---*/
 
 .home-six.skill-area {
@@ -8316,7 +8316,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Testimonial Area Home Six Css-->
+   <!--gulcev Strat Testimonial Area Home Six Css-->
 =========================================================---*/
 .home-six.testimonial-area {
     background: #ffff;
@@ -8396,7 +8396,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Blog Area Home Six Css-->
+   <!--gulcev Strat Blog Area Home Six Css-->
 =========================================================---*/
 
 .home-six.blog-area {
@@ -8526,7 +8526,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Contact Area Home Six Css-->
+   <!--gulcev Strat Contact Area Home Six Css-->
 =========================================================---*/
 .home-six.contact-area {
     padding: 102px 0 125px;
@@ -8558,7 +8558,7 @@ p.blog-list-desc {
     line-height: 48px;
 }
 
-.home-six.contact-area .echofy-button.style-five a {
+.home-six.contact-area .gulcev-button.style-five a {
     background: #00181A;
 }
 
@@ -8612,7 +8612,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Footer Area Home Six Css-->
+   <!--gulcev Strat Footer Area Home Six Css-->
 =========================================================---*/
 .home-six.footer-area {
     background: url(../images/home6/footer-bg.jpg);
@@ -8738,7 +8738,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat home Seven Area  Css-->
+   <!--gulcev Strat home Seven Area  Css-->
 =========================================================---*/
 
 
@@ -8798,7 +8798,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Hero Area home Seven  Css-->
+   <!--gulcev Strat Hero Area home Seven  Css-->
 =========================================================---*/
 .hero-area.home-seven {
     background: url(../images/home7/hero-bg.jpg);
@@ -8876,7 +8876,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Feature Area home Seven  Css-->
+   <!--gulcev Strat Feature Area home Seven  Css-->
 =========================================================---*/
 
 .feature-area.home-six.seven {
@@ -8925,7 +8925,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat About Area home Seven Css-->
+   <!--gulcev Strat About Area home Seven Css-->
 =========================================================---*/
 
 .home-seven .skill:before {
@@ -8946,7 +8946,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat About Area home Seven Css-->
+   <!--gulcev Strat About Area home Seven Css-->
 =========================================================---*/
 .home-seven.services-title-area {
     background: #F7F7F7;
@@ -8965,7 +8965,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Project Area home Seven Css-->
+   <!--gulcev Strat Project Area home Seven Css-->
 =========================================================---*/
 .project-area.home-seven {
     background: #fff;
@@ -9035,7 +9035,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Why Choose Area home Seven Css-->
+   <!--gulcev Strat Why Choose Area home Seven Css-->
 =========================================================---*/
 .why-choose-area.home-seven {
     background: url(../images/home7/why-choose-bg.png);
@@ -9069,7 +9069,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Counter Area home Seven Css-->
+   <!--gulcev Strat Counter Area home Seven Css-->
 =========================================================---*/
 .counter-area.home-seven {
     background: #49AE45;
@@ -9125,7 +9125,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Testimonial Area home Seven Css-->
+   <!--gulcev Strat Testimonial Area home Seven Css-->
 =========================================================---*/
 .home-seven.testimonial-area {
     background: #00181A;
@@ -9227,7 +9227,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Faqs Area home Seven Css-->
+   <!--gulcev Strat Faqs Area home Seven Css-->
 =========================================================---*/
 .home-seven.faqs-area {
     background: url(../images/home7/faqs-bg.jpg);
@@ -9378,7 +9378,7 @@ p.blog-list-desc {
 
 
 /*---=====================================================
-   <!--Echofy Strat Marque Area home Seven Css-->
+   <!--gulcev Strat Marque Area home Seven Css-->
 =========================================================---*/
 .marque-area.home-seven {
     background: url(../images/home7/marque-bg.png);
@@ -9740,7 +9740,7 @@ span.flaticon-multiply i {
 
 
 /*===========================
-<-- Echofy Sidbar Css -->
+<-- gulcev Sidbar Css -->
 =============================*/
 
 .xs-sidebar-group .xs-overlay {
