@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Privacy Policy | SpiritReflect</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#19e65e",
+              "background-light": "#f6f8f6",
+              "background-dark": "#112116",
+            },
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Manrope", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #244730;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen"
+  >
+    <!-- Top Navigation -->
+    <header
+      class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-[#244730] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 lg:px-40 py-3"
+    >
+      <div class="flex items-center justify-between max-w-[1200px] mx-auto">
+        <div class="flex items-center gap-3">
+          <div class="text-primary">
+            <svg
+              class="w-8 h-8"
+              fill="none"
+              viewbox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2
+            class="text-lg font-bold leading-tight tracking-[-0.015em] dark:text-white"
+          >
+            SpiritReflect
+          </h2>
+        </div>
+        <div class="flex items-center gap-8">
+          <nav class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Features</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#"
+              >Pricing</a
+            >
+          </nav>
+          <div class="flex gap-2">
+            <button
+              class="hidden sm:flex min-w-[84px] items-center justify-center rounded-lg h-10 px-4 bg-primary text-background-dark text-sm font-bold transition-transform active:scale-95"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-40 py-10">
+      <!-- Breadcrumbs -->
+      <nav class="flex flex-wrap gap-2 mb-6">
+        <a
+          class="text-slate-500 dark:text-[#93c8a5] text-sm font-medium hover:underline"
+          href="#"
+          >Legal</a
+        >
+        <span class="text-slate-400 dark:text-[#93c8a5] text-sm font-medium"
+          >/</span
+        >
+        <span class="text-slate-900 dark:text-white text-sm font-medium"
+          >Privacy Policy</span
+        >
+      </nav>
+      <div class="flex flex-col lg:flex-row gap-12">
+        <!-- Sidebar Navigation (Sticky) -->
+        <aside class="lg:w-64 flex-shrink-0">
+          <div class="sticky top-24 flex flex-col gap-6">
+            <div>
+              <h1 class="text-lg font-bold mb-1">Privacy Policy</h1>
+              <p class="text-slate-500 dark:text-[#93c8a5] text-xs font-medium">
+                Last Updated: Oct 24, 2023
+              </p>
+            </div>
+            <nav class="flex flex-col gap-1">
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary"
+                href="#intro"
+              >
+                <span class="material-symbols-outlined text-[20px]">info</span>
+                <span class="text-sm font-semibold">Introduction</span>
+              </a>
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#244730] transition-colors"
+                href="#collection"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-slate-500 dark:text-[#93c8a5]"
+                  >database</span
+                >
+                <span class="text-sm font-medium">Data Collection</span>
+              </a>
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#244730] transition-colors"
+                href="#oauth"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-slate-500 dark:text-[#93c8a5]"
+                  >cloud_done</span
+                >
+                <span class="text-sm font-medium">Google OAuth</span>
+              </a>
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#244730] transition-colors"
+                href="#security"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-slate-500 dark:text-[#93c8a5]"
+                  >shield_lock</span
+                >
+                <span class="text-sm font-medium">Data Security</span>
+              </a>
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#244730] transition-colors"
+                href="#rights"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-slate-500 dark:text-[#93c8a5]"
+                  >person_check</span
+                >
+                <span class="text-sm font-medium">User Rights</span>
+              </a>
+              <a
+                class="group flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-100 dark:hover:bg-[#244730] transition-colors"
+                href="#contact"
+              >
+                <span
+                  class="material-symbols-outlined text-[20px] text-slate-500 dark:text-[#93c8a5]"
+                  >mail</span
+                >
+                <span class="text-sm font-medium">Contact Us</span>
+              </a>
+            </nav>
+            <button
+              class="mt-4 flex items-center justify-center gap-2 border border-slate-200 dark:border-[#244730] rounded-lg py-2 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#1a3322] transition-colors"
+            >
+              <span class="material-symbols-outlined text-sm">print</span>
+              Print Policy
+            </button>
+          </div>
+        </aside>
+        <!-- Main Content -->
+        <article class="flex-1 max-w-3xl space-y-12">
+          <!-- Hero Heading -->
+          <section>
+            <h1
+              class="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4"
+            >
+              Privacy Policy
+            </h1>
+            <p
+              class="text-lg text-slate-600 dark:text-[#93c8a5] leading-relaxed"
+            >
+              Your journey of self-reflection is deeply personal. At
+              SpiritReflect, we hold your trust and privacy as our highest
+              priority. This policy outlines how we protect your spiritual data.
+            </p>
+          </section>
+          <!-- Section 1 -->
+          <section id="intro">
+            <h2 class="text-2xl font-bold flex items-center gap-3 mb-4">
+              <span class="text-primary">01.</span> Introduction
+            </h2>
+            <div
+              class="prose dark:prose-invert text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed"
+            >
+              <p>
+                Welcome to SpiritReflect. We are committed to protecting your
+                personal information and your right to privacy. If you have any
+                questions or concerns about this privacy notice, or our
+                practices with regards to your personal information, please
+                contact us at privacy@spiritreflect.com.
+              </p>
+              <p>
+                When you use our mobile application and our services, you trust
+                us with your personal information. We take your privacy very
+                seriously. In this privacy notice, we seek to explain to you in
+                the clearest way possible what information we collect, how we
+                use it and what rights you have in relation to it.
+              </p>
+            </div>
+          </section>
+          <!-- Section 2 -->
+          <section id="collection">
+            <h2 class="text-2xl font-bold flex items-center gap-3 mb-4">
+              <span class="text-primary">02.</span> Data Collection
+            </h2>
+            <div
+              class="prose dark:prose-invert text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed"
+            >
+              <p>
+                We collect personal information that you voluntarily provide to
+                us when you register on the App, express an interest in
+                obtaining information about us or our products and Services.
+              </p>
+              <ul class="list-disc pl-5 space-y-2 marker:text-primary">
+                <li>
+                  <strong>Account Data:</strong> Name, email address, and
+                  profile picture.
+                </li>
+                <li>
+                  <strong>Spiritual Logs:</strong> Your self-reflection entries,
+                  goals, and progress charts.
+                </li>
+                <li>
+                  <strong>Usage Data:</strong> Information about how you
+                  interact with our features to improve app performance.
+                </li>
+              </ul>
+            </div>
+          </section>
+          <!-- Section 3: Google OAuth Highlight -->
+          <section
+            class="p-8 rounded-xl bg-slate-100 dark:bg-[#1a3322] border-l-4 border-primary"
+            id="oauth"
+          >
+            <div class="flex items-center gap-3 mb-4">
+              <span class="material-symbols-outlined text-primary"
+                >verified_user</span
+              >
+              <h2 class="text-2xl font-bold">Google OAuth &amp; Data Usage</h2>
+            </div>
+            <div
+              class="prose dark:prose-invert text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed"
+            >
+              <p>
+                SpiritReflect uses Google OAuth services to provide a seamless
+                authentication experience and cross-device synchronization.
+              </p>
+              <div class="grid md:grid-cols-2 gap-6 mt-6">
+                <div class="bg-white dark:bg-background-dark p-4 rounded-lg">
+                  <h3
+                    class="font-bold text-sm mb-2 uppercase tracking-wider text-slate-400"
+                  >
+                    What we access
+                  </h3>
+                  <p class="text-sm">
+                    We only access your Google primary email address and basic
+                    profile information (name, profile picture).
+                  </p>
+                </div>
+                <div class="bg-white dark:bg-background-dark p-4 rounded-lg">
+                  <h3
+                    class="font-bold text-sm mb-2 uppercase tracking-wider text-slate-400"
+                  >
+                    How we use it
+                  </h3>
+                  <p class="text-sm">
+                    This data is used exclusively to sync your reflections
+                    across devices and verify your account identity.
+                  </p>
+                </div>
+              </div>
+              <p class="text-sm italic mt-4">
+                Note: SpiritReflect does not sell your Google data to third
+                parties. We do not use your personal information for advertising
+                purposes.
+              </p>
+            </div>
+          </section>
+          <!-- Section 4 -->
+          <section id="security">
+            <h2 class="text-2xl font-bold flex items-center gap-3 mb-4">
+              <span class="text-primary">03.</span> Data Security
+            </h2>
+            <div
+              class="prose dark:prose-invert text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed"
+            >
+              <p>
+                We have implemented appropriate technical and organizational
+                security measures designed to protect the security of any
+                personal information we process. However, despite our safeguards
+                and efforts to secure your information, no electronic
+                transmission over the Internet or information storage technology
+                can be guaranteed to be 100% secure.
+              </p>
+              <div
+                class="flex items-start gap-4 p-4 rounded-lg border border-slate-200 dark:border-[#244730]"
+              >
+                <span class="material-symbols-outlined text-primary"
+                  >lock_reset</span
+                >
+                <div>
+                  <h4 class="font-bold">End-to-End Encryption</h4>
+                  <p class="text-sm">
+                    Your reflection entries are encrypted at rest and in transit
+                    using industry-standard AES-256 encryption protocols.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Section 5 -->
+          <section id="rights">
+            <h2 class="text-2xl font-bold flex items-center gap-3 mb-4">
+              <span class="text-primary">04.</span> User Rights
+            </h2>
+            <div
+              class="prose dark:prose-invert text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed"
+            >
+              <p>
+                In some regions (like the European Economic Area), you have
+                certain rights under applicable data protection laws. These may
+                include the right (i) to request access and obtain a copy of
+                your personal information, (ii) to request rectification or
+                erasure; (iii) to restrict the processing of your personal
+                information.
+              </p>
+              <p>
+                You can manage your data directly through the "Account Settings"
+                section of the app, where you can export your data in JSON
+                format or permanently delete your account.
+              </p>
+            </div>
+          </section>
+          <!-- Footer contact info -->
+          <footer
+            class="pt-10 border-t border-slate-200 dark:border-[#244730]"
+            id="contact"
+          >
+            <h2 class="text-xl font-bold mb-4">Questions about this policy?</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
+              If you have questions or comments about this notice, you may email
+              us at:
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a
+                class="flex items-center gap-3 px-6 py-3 rounded-lg bg-primary/20 hover:bg-primary/30 text-primary transition-colors"
+                href="mailto:privacy@spiritreflect.com"
+              >
+                <span class="material-symbols-outlined">alternate_email</span>
+                <span class="font-bold">privacy@spiritreflect.com</span>
+              </a>
+              <a
+                class="flex items-center gap-3 px-6 py-3 rounded-lg border border-slate-200 dark:border-[#244730] hover:bg-slate-50 dark:hover:bg-[#1a3322] transition-colors"
+                href="#"
+              >
+                <span class="material-symbols-outlined">help</span>
+                <span class="font-medium">Support Center</span>
+              </a>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </main>
+    <!-- Bottom utility for small screens -->
+    <div class="lg:hidden fixed bottom-6 right-6">
+      <button
+        class="w-12 h-12 rounded-full bg-primary text-background-dark shadow-xl flex items-center justify-center transition-transform active:scale-90"
+        onclick="window.scrollTo(0,0)"
+      >
+        <span class="material-symbols-outlined">arrow_upward</span>
+      </button>
+    </div>
+    <!-- Footer Simple -->
+    <footer
+      class="bg-slate-50 dark:bg-[#0c1810] border-t border-slate-200 dark:border-[#244730] py-12 mt-20"
+    >
+      <div
+        class="max-w-[1200px] mx-auto px-10 lg:px-40 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <div class="flex items-center gap-2 opacity-50">
+          <div class="size-4">
+            <svg
+              fill="none"
+              viewbox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <span class="text-xs font-bold uppercase tracking-widest"
+            >SpiritReflect © 2023</span
+          >
+        </div>
+        <div class="flex gap-8 text-xs font-medium text-slate-500">
+          <a class="hover:text-primary" href="#">Terms of Service</a>
+          <a class="hover:text-primary" href="#">Cookie Policy</a>
+          <a class="hover:text-primary" href="#">Security Overview</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

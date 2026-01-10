@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Mizan - Islamic Mindfulness &amp; Reflection</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#19e65e",
+              "background-light": "#f6f8f6",
+              "background-dark": "#112116",
+            },
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <!-- Navigation -->
+      <header
+        class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-[#244730] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-20 lg:px-40 py-4"
+      >
+        <div class="max-w-[1200px] mx-auto flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="text-primary">
+              <svg
+                class="w-8 h-8"
+                fill="none"
+                viewbox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold tracking-tight">Mizan</h2>
+          </div>
+          <div class="hidden md:flex flex-1 justify-end gap-10 items-center">
+            <nav class="flex items-center gap-8">
+              <a
+                class="text-sm font-medium hover:text-primary transition-colors"
+                href="#about"
+                >About</a
+              >
+              <a
+                class="text-sm font-medium hover:text-primary transition-colors"
+                href="#how-it-works"
+                >How it Works</a
+              >
+              <a
+                class="text-sm font-medium hover:text-primary transition-colors"
+                href="#values"
+                >Values</a
+              >
+            </nav>
+            <button
+              class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold tracking-tight hover:brightness-110 transition-all"
+            >
+              Get Started
+            </button>
+          </div>
+          <div class="md:hidden">
+            <span class="material-symbols-outlined text-3xl">menu</span>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="px-6 md:px-20 lg:px-40 py-10 md:py-20">
+          <div class="max-w-[1200px] mx-auto">
+            <div class="@container">
+              <div
+                class="relative min-h-[520px] flex flex-col items-center justify-center overflow-hidden rounded-xl md:rounded-2xl p-8 md:p-16 text-center"
+                data-alt="Peaceful sunrise over a calm forest morning landscape"
+                style="
+                  background-image: linear-gradient(
+                      rgba(0, 0, 0, 0.5),
+                      rgba(0, 0, 0, 0.7)
+                    ),
+                    url('https://lh3.googleusercontent.com/aida-public/AB6AXuBF1ZTG4HOZVTqpbRrkFVAPPeCDTW-6CzwOMMh4sRtZmzxmVAljExCTRz_in9zaW5FA59j1e2WtMZIK-vi0DpGQPN_rnvp6s---3Szxl98nSiLnhf_UAxgahgpmMQQ39PJgnx4tj1n_7D_GbZ9kZodPWuW84e5pBXvZaap17D6IKceatHVQJwvEyFNQI3qWPAb4cwTfTRpQT6oqN1Nt-VBAYpEXtZKFWgAK98G50zkMHdaWFgpeA4PYFdDyJYL5FyxbK3MkBG0-oTEW');
+                  background-size: cover;
+                  background-position: center;
+                "
+              >
+                <div class="relative z-10 max-w-[800px] flex flex-col gap-6">
+                  <h1
+                    class="text-white text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
+                  >
+                    Cultivate Mindfulness, One Deed at a Time
+                  </h1>
+                  <p
+                    class="text-slate-200 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto"
+                  >
+                    A symbolic point system designed for self-awareness and
+                    spiritual intentionality. Balance your soul with modern
+                    reflection tools.
+                  </p>
+                  <div class="flex flex-wrap gap-4 justify-center mt-4">
+                    <button
+                      class="flex items-center gap-2 min-w-[200px] cursor-pointer justify-center rounded-lg h-14 px-6 bg-primary text-background-dark text-base font-bold transition-transform hover:scale-105"
+                    >
+                      <span class="material-symbols-outlined">ios</span>
+                      <span>Download App Store</span>
+                    </button>
+                    <button
+                      class="flex items-center gap-2 min-w-[200px] cursor-pointer justify-center rounded-lg h-14 px-6 bg-slate-100/10 backdrop-blur-md text-white border border-white/20 text-base font-bold transition-transform hover:scale-105"
+                    >
+                      <span class="material-symbols-outlined"
+                        >play_store_installed</span
+                      >
+                      <span>Get it on Google Play</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- How it Works -->
+        <section
+          class="px-6 md:px-20 lg:px-40 py-16 bg-white/50 dark:bg-black/10"
+          id="how-it-works"
+        >
+          <div class="max-w-[1200px] mx-auto">
+            <div class="flex flex-col gap-12">
+              <div class="flex flex-col gap-4 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+                  How it Works
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg max-w-xl">
+                  Three simple steps to integrate mindful living into your daily
+                  spiritual routine.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Reflect -->
+                <div
+                  class="group flex flex-col gap-6 p-8 rounded-xl border border-slate-200 dark:border-[#346544] bg-white dark:bg-[#1a3222] hover:border-primary transition-all duration-300"
+                >
+                  <div
+                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >hourglass_empty</span
+                    >
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3 class="text-xl font-bold">Reflect</h3>
+                    <p
+                      class="text-slate-600 dark:text-[#93c8a5] leading-relaxed"
+                    >
+                      Daily prompts for internal contemplation and regular
+                      spiritual check-ins that encourage honesty with oneself.
+                    </p>
+                  </div>
+                </div>
+                <!-- Act -->
+                <div
+                  class="group flex flex-col gap-6 p-8 rounded-xl border border-slate-200 dark:border-[#346544] bg-white dark:bg-[#1a3222] hover:border-primary transition-all duration-300"
+                >
+                  <div
+                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary"
+                  >
+                    <span class="material-symbols-outlined text-3xl">eco</span>
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3 class="text-xl font-bold">Act</h3>
+                    <p
+                      class="text-slate-600 dark:text-[#93c8a5] leading-relaxed"
+                    >
+                      Turn your intentions into tangible good deeds. Small,
+                      consistent actions lead to meaningful life
+                      transformations.
+                    </p>
+                  </div>
+                </div>
+                <!-- Grow -->
+                <div
+                  class="group flex flex-col gap-6 p-8 rounded-xl border border-slate-200 dark:border-[#346544] bg-white dark:bg-[#1a3222] hover:border-primary transition-all duration-300"
+                >
+                  <div
+                    class="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary"
+                  >
+                    <span class="material-symbols-outlined text-3xl"
+                      >trending_up</span
+                    >
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <h3 class="text-xl font-bold">Grow</h3>
+                    <p
+                      class="text-slate-600 dark:text-[#93c8a5] leading-relaxed"
+                    >
+                      Visualize your spiritual journey through non-judgmental
+                      metrics that highlight patterns and progress over time.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Values Section -->
+        <section class="px-6 md:px-20 lg:px-40 py-24" id="values">
+          <div class="max-w-[1200px] mx-auto text-center">
+            <div
+              class="bg-primary/5 dark:bg-primary/10 rounded-3xl p-8 md:p-20 border border-primary/20"
+            >
+              <div class="max-w-[800px] mx-auto flex flex-col gap-8">
+                <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight">
+                  Core Values
+                </h2>
+                <p
+                  class="text-slate-700 dark:text-slate-300 text-lg md:text-xl leading-relaxed"
+                >
+                  Mizan is built on the principle of
+                  <span class="text-primary font-bold">Niyyah</span> (pure
+                  intention). We believe spiritual growth is a private journey.
+                  Our app is a tool for personal self-awareness, not a platform
+                  for religious judgment. We provide the mirror; you provide the
+                  soul.
+                </p>
+                <div class="flex justify-center">
+                  <button
+                    class="flex min-w-[180px] cursor-pointer items-center justify-center rounded-lg h-14 px-8 bg-primary text-background-dark text-base font-bold hover:brightness-110 transition-all shadow-lg shadow-primary/20"
+                  >
+                    Learn Our Philosophy
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- Footer -->
+      <footer
+        class="border-t border-slate-200 dark:border-[#244730] px-6 md:px-20 lg:px-40 py-16 text-center"
+      >
+        <div class="max-w-[1200px] mx-auto flex flex-col gap-10">
+          <div
+            class="flex flex-wrap items-center justify-center gap-8 md:gap-16"
+          >
+            <a
+              class="text-slate-500 dark:text-[#93c8a5] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-slate-500 dark:text-[#93c8a5] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Terms of Service</a
+            >
+            <a
+              class="text-slate-500 dark:text-[#93c8a5] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Community Guidelines</a
+            >
+            <a
+              class="text-slate-500 dark:text-[#93c8a5] text-base font-medium hover:text-primary transition-colors"
+              href="#"
+              >Contact</a
+            >
+          </div>
+          <div class="flex justify-center gap-6">
+            <a
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-[#1a3222] text-slate-500 dark:text-[#93c8a5] hover:bg-primary hover:text-background-dark transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined">alternate_email</span>
+            </a>
+            <a
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-[#1a3222] text-slate-500 dark:text-[#93c8a5] hover:bg-primary hover:text-background-dark transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined">share</span>
+            </a>
+            <a
+              class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-[#1a3222] text-slate-500 dark:text-[#93c8a5] hover:bg-primary hover:text-background-dark transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined">public</span>
+            </a>
+          </div>
+          <div class="flex flex-col gap-2">
+            <p class="text-slate-400 dark:text-[#93c8a5]/60 text-sm">
+              © 2024 Mizan Mindfulness. Designed for the soul.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
