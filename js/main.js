@@ -3,7 +3,7 @@
 Name: 		 Birfikiriz
 Version:     1.0
 Developer:   Birfikiriz (Birfikiriz)
-Portfolio:   https://themeforest.net/user/Birfikiriz/portfolio?ref=Birfikiriz
+Portfolio:   https://www.birfikiriz.com/?ref=Birfikiriz
 
 p.s. I am available for Freelance hire (UI design, web development). email: miller.themes@gmail.com
    
@@ -1111,82 +1111,82 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mail form submission
     document.querySelectorAll('.mil-subscribe-form').forEach(form => {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const formData = new FormData(this);
             const submitButton = this.querySelector('button[type="submit"]');
             const originalIcon = submitButton.innerHTML;
-            
+
             // Butonu devre dışı bırak ve yükleme simgesi göster
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fal fa-spinner fa-spin"></i>';
-            
+
             fetch(this.action, {
                 method: 'POST',
                 body: formData
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Sunucu yanıt vermiyor. Lütfen daha sonra tekrar deneyin.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.success) {
-                    // Başarılı mesajını göster
-                    const successMessage = document.createElement('div');
-                    successMessage.style.color = '#28a745';
-                    successMessage.style.marginTop = '10px';
-                    successMessage.style.fontWeight = 'bold';
-                    successMessage.textContent = data.message || 'Bülten aboneliğiniz başarıyla oluşturuldu!';
-                    
-                    // Formu temizle ve mesajı ekle
-                    this.reset();
-                    this.parentNode.appendChild(successMessage);
-                    
-                    // 3 saniye sonra mesajı kaldır
-                    setTimeout(() => {
-                        successMessage.remove();
-                    }, 5000);
-                } else {
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Sunucu yanıt vermiyor. Lütfen daha sonra tekrar deneyin.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Başarılı mesajını göster
+                        const successMessage = document.createElement('div');
+                        successMessage.style.color = '#28a745';
+                        successMessage.style.marginTop = '10px';
+                        successMessage.style.fontWeight = 'bold';
+                        successMessage.textContent = data.message || 'Bülten aboneliğiniz başarıyla oluşturuldu!';
+
+                        // Formu temizle ve mesajı ekle
+                        this.reset();
+                        this.parentNode.appendChild(successMessage);
+
+                        // 3 saniye sonra mesajı kaldır
+                        setTimeout(() => {
+                            successMessage.remove();
+                        }, 5000);
+                    } else {
+                        // Hata mesajını göster
+                        const errorMessage = document.createElement('div');
+                        errorMessage.style.color = '#dc3545';
+                        errorMessage.style.marginTop = '10px';
+                        errorMessage.style.fontWeight = 'bold';
+                        errorMessage.textContent = data.message || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+
+                        this.parentNode.appendChild(errorMessage);
+
+                        // 3 saniye sonra mesajı kaldır
+                        setTimeout(() => {
+                            errorMessage.remove();
+                        }, 5000);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+
                     // Hata mesajını göster
                     const errorMessage = document.createElement('div');
                     errorMessage.style.color = '#dc3545';
                     errorMessage.style.marginTop = '10px';
                     errorMessage.style.fontWeight = 'bold';
-                    errorMessage.textContent = data.message || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
-                    
+                    errorMessage.textContent = error.message || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
+
                     this.parentNode.appendChild(errorMessage);
-                    
+
                     // 3 saniye sonra mesajı kaldır
                     setTimeout(() => {
                         errorMessage.remove();
                     }, 5000);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                
-                // Hata mesajını göster
-                const errorMessage = document.createElement('div');
-                errorMessage.style.color = '#dc3545';
-                errorMessage.style.marginTop = '10px';
-                errorMessage.style.fontWeight = 'bold';
-                errorMessage.textContent = error.message || 'Bir hata oluştu. Lütfen daha sonra tekrar deneyin.';
-                
-                this.parentNode.appendChild(errorMessage);
-                
-                // 3 saniye sonra mesajı kaldır
-                setTimeout(() => {
-                    errorMessage.remove();
-                }, 5000);
-            })
-            .finally(() => {
-                // Her durumda butonu normal haline getir
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalIcon;
-            });
+                })
+                .finally(() => {
+                    // Her durumda butonu normal haline getir
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalIcon;
+                });
         });
     });
 
