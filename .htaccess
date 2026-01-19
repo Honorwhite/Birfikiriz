@@ -1,7 +1,7 @@
 RewriteEngine On
 
-# 🔴 IMPORTANT: completely ignore /qrcode
-RewriteRule ^qrcode(/.*)?$ - [L]
+# 🔴 IMPORTANT: completely ignore /qrcode and /skydrop
+RewriteRule ^(qrcode|skydrop)(/.*)?$ - [L]
 
 # Redirect /index.html → /
 RewriteCond %{THE_REQUEST} /index(\.html)? [NC]

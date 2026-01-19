@@ -5,7 +5,11 @@
       "destination": "/qrcode/index.html"
     },
     {
-      "source": "/((?!qrcode/).*)",
+      "source": "/skydrop/:path*",
+      "destination": "/skydrop/index.html"
+    },
+    {
+      "source": "/((?!qrcode/|skydrop/).*)",
       "destination": "/index.html"
     }
   ]
