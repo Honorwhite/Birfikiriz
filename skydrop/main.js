@@ -23,8 +23,64 @@ const elements = {
     progressBar: document.getElementById('progress-bar'),
     progressText: document.getElementById('progress-text'),
     btnCancelTransfer: document.getElementById('btn-cancel-transfer'),
-    progressDetailContainer: document.getElementById('progress-detail-container')
+    progressDetailContainer: document.getElementById('progress-detail-container'),
+    btnTheme: document.getElementById('btn-theme'),
+    btnLang: document.getElementById('btn-lang')
 };
+
+const i18n = {
+    current: 'tr',
+    tr: {
+        'connecting': 'Bağlanıyor...',
+        'online': 'Çevrimiçi',
+        'looking-devices': 'Cihazlar aranıyor...',
+        'open-another': 'Paylaşmaya başlamak için başka bir cihazda SkyDrop\'u açın',
+        'detecting': 'Cihazlar taranıyor...',
+        'incoming-file': 'Gelen Dosya',
+        'decline': 'Reddet',
+        'accept': 'Kabul Et',
+        'sending-file': 'Dosya Gönderiliyor...',
+        'receiving-file': 'Dosya Alınıyor...',
+        'waiting-approval': 'Onay bekleniyor...',
+        'cancel': 'İptal',
+        'hero-title': 'Anında Paylaşım.',
+        'hero-subtitle': 'Dosyalarınızı yerel ağdaki herhangi bir cihaza buluta yüklemeden anında gönderin.',
+        'sent-success': 'Dosya başarıyla gönderildi!',
+        'transfer-failed': 'Transfer başarısız oldu.',
+        'timeout': 'Bağlantı zaman aşımı. Cihaz çevrimdışı olabilir.'
+    },
+    en: {
+        'connecting': 'Connecting...',
+        'online': 'Online',
+        'looking-devices': 'Looking for devices...',
+        'open-another': 'Open SkyDrop on another device to start sharing',
+        'detecting': 'Detecting device...',
+        'incoming-file': 'Incoming File',
+        'decline': 'Decline',
+        'accept': 'Accept',
+        'sending-file': 'Sending File...',
+        'receiving-file': 'Receiving File...',
+        'waiting-approval': 'Waiting for approval...',
+        'cancel': 'Cancel',
+        'hero-title': 'Instant Sharing.',
+        'hero-subtitle': 'Send files to any device on your current network without uploading to any cloud.',
+        'sent-success': 'File sent successfully!',
+        'transfer-failed': 'Transfer failed.',
+        'timeout': 'Connection timeout. Peer might be offline.'
+    }
+};
+
+function t(key) {
+    return i18n[i18n.current][key] || key;
+}
+
+function updateUI() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+    });
+    elements.btnLang.textContent = i18n.current.toUpperCase();
+}
 
 async function init() {
     myId = Utils.generateId();
@@ -64,7 +120,7 @@ async function init() {
     });
 
     peer.on('open', () => {
-        elements.statusBadge.textContent = 'Online';
+        elements.statusBadge.textContent = t('online');
         elements.statusBadge.classList.add('online');
     });
 
@@ -82,6 +138,21 @@ async function init() {
         updatePeerList();
         announcePresence();
     };
+
+    elements.btnTheme.onclick = () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        elements.btnTheme.querySelector('i').setAttribute('data-lucide', newTheme === 'dark' ? 'moon' : 'sun');
+        lucide.createIcons();
+    };
+
+    elements.btnLang.onclick = () => {
+        i18n.current = i18n.current === 'tr' ? 'en' : 'tr';
+        updateUI();
+    };
+
+    updateUI();
 
     // Heartbeat every 5s
     setInterval(announcePresence, 5000);
@@ -173,7 +244,7 @@ function getIconForDevice(name) {
 }
 
 function sendFileOffer(targetId, file) {
-    showProgress('Waiting for the other device to approve file transfer...', false);
+    showProgress(t('waiting-approval'), false);
     const conn = peer.connect(targetId, { reliable: true });
 
     elements.btnCancelTransfer.onclick = () => {
@@ -184,7 +255,7 @@ function sendFileOffer(targetId, file) {
     const timeout = setTimeout(() => {
         if (!conn.open) {
             hideProgress();
-            alert('Connection timeout. Peer might be offline.');
+            alert(t('timeout'));
         }
     }, 15000);
 
@@ -232,7 +303,7 @@ async function startFileTransfer(conn) {
     const info = outgoingFileData[conn.peer];
     if (!info) return;
 
-    showProgress('Sending File...', true);
+    showProgress(t('sending-file'), true);
 
     try {
         for (let i = 0; i < info.totalChunks; i++) {
@@ -258,12 +329,12 @@ async function startFileTransfer(conn) {
 
         setTimeout(() => {
             hideProgress();
-            alert('File sent successfully!');
+            alert(t('sent-success'));
         }, 1000);
     } catch (e) {
         console.error('Transfer failed', e);
         hideProgress();
-        alert('Transfer failed.');
+        alert(t('transfer-failed'));
     }
 }
 
@@ -275,7 +346,7 @@ function receiveChunk(data, conn) {
             total: data.total,
             fileName: data.fileName
         };
-        showProgress('Receiving...', true);
+        showProgress(t('receiving-file'), true);
 
         elements.btnCancelTransfer.onclick = () => {
             conn.close();
@@ -339,7 +410,10 @@ function updateProgressBar(percent) {
 }
 
 function showAcceptModal(data, conn) {
-    elements.modalMsg.textContent = `${data.senderName} wants to send "${data.fileName}" (${Utils.formatBytes(data.fileSize)})`;
+    const fileSize = Utils.formatBytes(data.fileSize);
+    elements.modalMsg.textContent = i18n.current === 'tr'
+        ? `${data.senderName} cihazı size "${data.fileName}" (${fileSize}) göndermek istiyor.`
+        : `${data.senderName} wants to send "${data.fileName}" (${fileSize})`;
     elements.modal.classList.remove('hidden');
 
     elements.btnAccept.onclick = () => {
