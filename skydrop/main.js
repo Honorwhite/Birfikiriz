@@ -13,7 +13,6 @@ const elements = {
     statusBadge: document.getElementById('status'),
     peerGrid: document.getElementById('discovery'),
     localName: document.getElementById('local-peer-name'),
-    roomId: document.getElementById('room-id'),
     btnRefresh: document.getElementById('btn-refresh'),
     emptyState: document.getElementById('empty-state'),
     modal: document.getElementById('modal-container'),
@@ -31,7 +30,6 @@ async function init() {
     networkId = await Utils.getNetworkHash();
 
     elements.localName.textContent = `${myName} (Me)`;
-    elements.roomId.textContent = `Room: ${networkId}`;
 
     // MQTT Initialization (EMQX Public Broker)
     mqttTopic = `skydrop/v1/${networkId}`;

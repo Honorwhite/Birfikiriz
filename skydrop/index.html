@@ -3,8 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="supported-color-schemes" content="dark">
     <title>SkyDrop | P2P File Sharing</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0f172a">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
@@ -25,7 +28,6 @@
                 <h1>SkyDrop</h1>
             </div>
             <div class="header-right">
-                <div id="room-id" class="status-badge" title="Room ID">Room: ...</div>
                 <div id="status" class="status-badge">Connecting...</div>
                 <button id="btn-refresh" class="btn-icon" title="Refresh Discovery">
                     <i data-lucide="refresh-cw"></i>
