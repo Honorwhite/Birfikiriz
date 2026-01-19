@@ -21,7 +21,9 @@ const elements = {
     btnDecline: document.getElementById('btn-decline'),
     progressOverlay: document.getElementById('progress-container'),
     progressBar: document.getElementById('progress-bar'),
-    progressText: document.getElementById('progress-text')
+    progressText: document.getElementById('progress-text'),
+    btnCancelTransfer: document.getElementById('btn-cancel-transfer'),
+    progressDetailContainer: document.getElementById('progress-detail-container')
 };
 
 async function init() {
@@ -171,8 +173,13 @@ function getIconForDevice(name) {
 }
 
 function sendFileOffer(targetId, file) {
-    showProgress('Connecting...');
+    showProgress('Waiting for the other device to approve file transfer...', false);
     const conn = peer.connect(targetId, { reliable: true });
+
+    elements.btnCancelTransfer.onclick = () => {
+        conn.close();
+        hideProgress();
+    };
 
     const timeout = setTimeout(() => {
         if (!conn.open) {
@@ -205,6 +212,10 @@ function handleConnection(conn) {
         if (data.type === 'file-offer') {
             showAcceptModal(data, conn);
         } else if (data.type === 'file-accepted') {
+            elements.btnCancelTransfer.onclick = () => {
+                conn.close();
+                hideProgress();
+            };
             startFileTransfer(conn);
         } else if (data.type === 'file-chunk') {
             receiveChunk(data, conn);
@@ -221,7 +232,7 @@ async function startFileTransfer(conn) {
     const info = outgoingFileData[conn.peer];
     if (!info) return;
 
-    showProgress('Sending File...');
+    showProgress('Sending File...', true);
 
     try {
         for (let i = 0; i < info.totalChunks; i++) {
@@ -264,7 +275,12 @@ function receiveChunk(data, conn) {
             total: data.total,
             fileName: data.fileName
         };
-        showProgress('Receiving...');
+        showProgress('Receiving...', true);
+
+        elements.btnCancelTransfer.onclick = () => {
+            conn.close();
+            hideProgress();
+        };
     }
 
     const info = incomingFileData[conn.peer];
@@ -298,9 +314,16 @@ function completeDownload(info) {
     }, 2000);
 }
 
-function showProgress(title) {
+function showProgress(title, showPercentage = true) {
     const progTitle = document.getElementById('progress-title');
     progTitle.textContent = title;
+
+    if (showPercentage) {
+        elements.progressDetailContainer.classList.remove('hidden');
+    } else {
+        elements.progressDetailContainer.classList.add('hidden');
+    }
+
     elements.progressOverlay.classList.remove('hidden');
 }
 

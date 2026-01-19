@@ -72,10 +72,15 @@
     <div id="progress-container" class="progress-overlay hidden">
         <div class="glass-modal">
             <h3 id="progress-title">Sending File...</h3>
-            <div class="progress-bar-bg">
-                <div id="progress-bar" class="progress-bar-fill"></div>
+            <div id="progress-detail-container">
+                <div class="progress-bar-bg">
+                    <div id="progress-bar" class="progress-bar-fill"></div>
+                </div>
+                <p id="progress-text">0%</p>
             </div>
-            <p id="progress-text">0%</p>
+            <div class="modal-actions">
+                <button id="btn-cancel-transfer" class="btn btn-secondary">Cancel</button>
+            </div>
         </div>
     </div>
 
