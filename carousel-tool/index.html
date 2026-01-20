@@ -15,29 +15,39 @@
 </head>
 
 <body>
+    <div class="background-grid"></div>
+    <div class="glow"></div>
+
+    <div class="top-toolbar">
+        <button class="toolbar-btn lang-btn" id="btn-lang" onclick="toggleLanguage()">TR</button>
+        <button class="toolbar-btn" id="btn-theme" onclick="toggleTheme()">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
     <header>
-        <span class="tag">Profesyonel Görsel Aracı</span>
-        <h1>Instagram Carousel Bölme</h1>
-        <p>Görselinizi seçin ve otomatik olarak bölün.</p>
+        <span class="tag" id="tag-text">Profesyonel Görsel Aracı</span>
+        <h1 id="main-title">Instagram Carousel Bölme</h1>
+        <p id="main-desc">Görselinizi seçin ve otomatik olarak bölün.</p>
     </header>
 
     <main class="container">
         <div class="mode-selector">
             <button class="mode-btn active" data-mode="3">
-                <i class="fa-solid fa-table-columns"></i> 3'lü Bölme
+                <i class="fa-solid fa-table-columns"></i> <span id="mode-3-text">3'lü Bölme</span>
             </button>
             <button class="mode-btn" data-mode="6">
-                <i class="fa-solid fa-table-cells-large"></i> 6'lı Bölme
+                <i class="fa-solid fa-table-cells-large"></i> <span id="mode-6-text">6'lı Bölme</span>
             </button>
             <button class="mode-btn" data-mode="9">
-                <i class="fa-solid fa-table-cells"></i> 9'lu Bölme
+                <i class="fa-solid fa-table-cells"></i> <span id="mode-9-text">9'lu Bölme</span>
             </button>
         </div>
 
         <div class="upload-card" id="upload-card">
             <div class="drop-zone" id="drop-zone">
                 <i class="fa-solid fa-cloud-arrow-up"></i>
-                <p>Bir görsel sürükleyin veya <span>dosya seçin</span></p>
+                <p id="drop-text">Bir görsel sürükleyin veya <span>dosya seçin</span></p>
                 <input type="file" id="image-input" accept="image/jpeg, image/png, image/webp">
             </div>
         </div>
@@ -56,7 +66,7 @@
     <div class="processing-overlay" id="processing-overlay">
         <div style="text-align: center;">
             <div class="loader"></div>
-            <p style="margin-top: 15px;">Görsel İşleniyor...</p>
+            <p style="margin-top: 15px;" id="processing-text">Görsel İşleniyor...</p>
         </div>
     </div>
 
@@ -64,8 +74,8 @@
     <canvas id="temp-canvas" width="3104" height="1350"></canvas>
 
     <footer>
-        <p>Geliştiriciyi takip edin: <a href="https://www.instagram.com/onurakbas__/" target="_blank"
-                rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> @onurakbas__</a></p>
+        <p><span id="follow-text">Geliştiriciyi takip edin:</span> <a href="https://www.instagram.com/onurakbas__/"
+                target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> @onurakbas__</a></p>
     </footer>
 
     <script src="../carousel-tool/script.js"></script>

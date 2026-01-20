@@ -1,4 +1,87 @@
+const translations = {
+    tr: {
+        tagText: "Profesyonel Görsel Aracı",
+        mainTitle: "Instagram Carousel Bölme",
+        mainDesc: "Görselinizi seçin ve otomatik olarak bölün.",
+        mode3: "3'lü Bölme",
+        mode6: "6'lı Bölme",
+        mode9: "9'lu Bölme",
+        dropText: "Bir görsel sürükleyin veya <span>dosya seçin</span>",
+        downloadAll: "Tümünü ZIP İndir",
+        processing: "Görsel İşleniyor...",
+        colNames: ["Sol", "Orta", "Sağ"],
+        rowText: "Satır",
+        partText: "Parça",
+        downloadBtn: "JPG İndir",
+        zipPreparing: "Hazırlanıyor...",
+        followText: "Geliştiriciyi takip edin:",
+        errorProcess: "Görsel işlenirken bir hata oluştu.",
+        errorZip: "ZIP dosyası oluşturulurken bir hata oluştu."
+    },
+    en: {
+        tagText: "Professional Image Tool",
+        mainTitle: "Instagram Carousel Splitter",
+        mainDesc: "Choose your image and split it automatically.",
+        mode3: "3x Split",
+        mode6: "6x Split",
+        mode9: "9x Split",
+        dropText: "Drag an image or <span>select file</span>",
+        downloadAll: "Download All as ZIP",
+        processing: "Processing Image...",
+        colNames: ["Left", "Middle", "Right"],
+        rowText: "Row",
+        partText: "Part",
+        downloadBtn: "Download JPG",
+        zipPreparing: "Preparing...",
+        followText: "Follow the developer:",
+        errorProcess: "An error occurred while processing the image.",
+        errorZip: "An error occurred while creating the ZIP file."
+    }
+};
+
+let currentLang = localStorage.getItem('lang') || 'tr';
+let currentTheme = localStorage.getItem('theme') || 'dark';
+
+function updateUI() {
+    const t = translations[currentLang];
+    document.getElementById('tag-text').textContent = t.tagText;
+    document.getElementById('main-title').textContent = t.mainTitle;
+    document.getElementById('main-desc').textContent = t.mainDesc;
+    document.getElementById('mode-3-text').textContent = t.mode3;
+    document.getElementById('mode-6-text').textContent = t.mode6;
+    document.getElementById('mode-9-text').textContent = t.mode9;
+    document.getElementById('drop-text').innerHTML = t.dropText;
+    document.getElementById('download-all-btn').innerHTML = `<i class="fa-solid fa-file-zipper"></i> ${t.downloadAll}`;
+    document.getElementById('processing-text').textContent = t.processing;
+    document.getElementById('btn-lang').textContent = currentLang.toUpperCase();
+    document.getElementById('follow-text').textContent = t.followText;
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'tr' ? 'en' : 'tr';
+    localStorage.setItem('lang', currentLang);
+    updateUI();
+    // Re-render if results exist
+    if (window.loadedImageForCarousel) {
+        window.startProcess();
+    }
+}
+
+function toggleTheme() {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    const themeIcon = document.querySelector('#btn-theme i');
+    themeIcon.className = currentTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+}
+
+// Initialize theme and UI
+document.documentElement.setAttribute('data-theme', currentTheme);
 document.addEventListener('DOMContentLoaded', () => {
+    updateUI();
+    const themeIcon = document.querySelector('#btn-theme i');
+    themeIcon.className = currentTheme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+
     const dropZone = document.getElementById('drop-zone');
     const imageInput = document.getElementById('image-input');
     const resultsGrid = document.getElementById('results-grid');
@@ -12,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const modeBtns = document.querySelectorAll('.mode-btn');
     let currentMode = 3; // Default
+    let loadedImage = null;
+
+    window.loadedImageForCarousel = null;
 
     modeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -19,16 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.add('active');
             currentMode = parseInt(btn.dataset.mode);
 
-            // Re-process if image already exists
             if (loadedImage) {
                 startProcess();
             }
         });
     });
 
-    let loadedImage = null;
-
-    // Handle Drag & Drop
     dropZone.addEventListener('click', () => imageInput.click());
 
     dropZone.addEventListener('dragover', (e) => {
@@ -62,11 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.onload = (e) => {
             loadedImage = new Image();
             loadedImage.onload = () => {
-                // Reset results
+                window.loadedImageForCarousel = loadedImage;
                 resultsGrid.classList.remove('visible');
                 resultsHeader.style.display = 'none';
-
-                // Automatically start processing
                 startProcess();
             };
             loadedImage.src = e.target.result;
@@ -74,12 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
         reader.readAsDataURL(file);
     }
 
-    function startProcess() {
+    window.startProcess = function () {
         if (!loadedImage) return;
-
         overlay.style.display = 'flex';
-
-        // Brief delay to allow UI to update (loader)
         setTimeout(() => {
             try {
                 processImage();
@@ -87,8 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 resultsHeader.style.display = 'flex';
                 resultsGrid.scrollIntoView({ behavior: 'smooth' });
             } catch (error) {
-                console.error('İşleme hatası:', error);
-                alert('Görsel işlenirken bir hata oluştu.');
+                console.error('Process error:', error);
+                alert(translations[currentLang].errorProcess);
             } finally {
                 overlay.style.display = 'none';
             }
@@ -99,20 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const rows = currentMode / 3;
         const targetW = 3104;
         const targetH = 1350 * rows;
+        const t = translations[currentLang];
 
-        // Resize temp canvas
         tempCanvas.width = targetW;
         tempCanvas.height = targetH;
 
-        // Step 1: Draw to main canvas with Object-Fit: Cover logic
         const sourceW = loadedImage.width;
         const sourceH = loadedImage.height;
-
         const sourceAspect = sourceW / sourceH;
         const targetAspect = targetW / targetH;
 
         let drawW, drawH, sx, sy;
-
         if (sourceAspect > targetAspect) {
             drawH = sourceH;
             drawW = sourceH * targetAspect;
@@ -128,17 +202,15 @@ document.addEventListener('DOMContentLoaded', () => {
         ctxTemp.clearRect(0, 0, targetW, targetH);
         ctxTemp.drawImage(loadedImage, sx, sy, drawW, drawH, 0, 0, targetW, targetH);
 
-        // Step 2: Clear grid and Extract parts
         resultsGrid.innerHTML = '';
 
         const colOffsets = [0, 1012, 2024];
-        const colNames = ['Sol', 'Orta', 'Sağ'];
 
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < 3; c++) {
                 const partIndex = r * 3 + c + 1;
-                const rowName = rows > 1 ? `${r + 1}. Satır ` : '';
-                const partName = `${rowName}${colNames[c]} Parça (${partIndex})`;
+                const rowName = rows > 1 ? `${r + 1}. ${t.rowText} ` : '';
+                const partName = `${rowName}${t.colNames[c]} ${t.partText} (${partIndex})`;
                 const startX = colOffsets[c];
                 const startY = r * 1350;
 
@@ -148,41 +220,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createResultItem(name, startX, startY, index) {
+        const t = translations[currentLang];
         const item = document.createElement('div');
         item.className = 'result-item';
 
         item.innerHTML = `
             <span class="tag">${name}</span>
             <div class="result-canvas-container">
-                <canvas width="1080" height="1350"></canvas>
+                <canvas width="1080" height="1350" style="width:100%; border-radius:12px;"></canvas>
             </div>
             <a href="#" class="btn btn-download" download="parca-${index}.jpg">
-                <i class="fa-solid fa-download"></i> JPG İndir
+                <i class="fa-solid fa-download"></i> ${t.downloadBtn}
             </a>
         `;
 
         const canvas = item.querySelector('canvas');
         const downloadBtn = item.querySelector('.btn-download');
         const ctx = canvas.getContext('2d');
-
-        // Draw from temp canvas
         ctx.drawImage(tempCanvas, startX, startY, 1080, 1350, 0, 0, 1080, 1350);
-
-        // Set download link
-        const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-        downloadBtn.href = dataUrl;
-
+        downloadBtn.href = canvas.toDataURL('image/jpeg', 0.92);
         resultsGrid.appendChild(item);
     }
 
-    // ZIP Download Logic
     async function downloadAll() {
+        const t = translations[currentLang];
         const zip = new JSZip();
         const canvases = resultsGrid.querySelectorAll('canvas');
 
         downloadAllBtn.disabled = true;
         const originalText = downloadAllBtn.innerHTML;
-        downloadAllBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Hazırlanıyor...';
+        downloadAllBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ${t.zipPreparing}`;
 
         try {
             for (let i = 0; i < canvases.length; i++) {
@@ -199,8 +266,8 @@ document.addEventListener('DOMContentLoaded', () => {
             link.click();
             URL.revokeObjectURL(link.href);
         } catch (error) {
-            console.error('ZIP hatası:', error);
-            alert('ZIP dosyası oluşturulurken bir hata oluştu.');
+            console.error('ZIP error:', error);
+            alert(t.errorZip);
         } finally {
             downloadAllBtn.disabled = false;
             downloadAllBtn.innerHTML = originalText;
