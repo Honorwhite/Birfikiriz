@@ -30,15 +30,15 @@ document.addEventListener("DOMContentLoaded", function () {
     ------------------------------------------- */
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
     /* -------------------------------------------
-
-    ScrollSmoother
-
+    ScrollSmoother (Disabled for performance)
     ------------------------------------------- */
+    /*
     ScrollSmoother.create({
         smooth: 1,
         effects: true,
         smoothTouch: 0.1,
     });
+    */
 
     /* -------------------------------------------
 
@@ -641,15 +641,15 @@ document.addEventListener("DOMContentLoaded", function () {
         ------------------------------------------- */
         gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
         /* -------------------------------------------
-
-        ScrollSmoother
-
+        ScrollSmoother (Disabled for performance)
         ------------------------------------------- */
+        /*
         ScrollSmoother.create({
             smooth: 1,
             effects: true,
             smoothTouch: 0.1,
         });
+        */
 
         /* -------------------------------------------
 

@@ -101,18 +101,37 @@ body {
   font-weight: 300;
   font-size: 14px;
   background-color: #ECECEA;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .mil-page-wrapper {
   position: relative;
-  overflow: hidden;
-  height: 100vh;
+  /* overflow: hidden; */
+  /* Disabled for native scroll */
+  /* height: 100vh; */
+  /* Disabled for native scroll */
 }
 
 .mil-up {
   opacity: 0;
   -webkit-transform: translateY(40px) scale(1.04);
   transform: translateY(40px) scale(1.04);
+  will-change: transform, opacity;
+}
+
+.mil-scale-img,
+.mil-parallax-img,
+.mil-parallax-x-img,
+.mil-rotate {
+  will-change: transform;
+}
+
+/* Snappier feel */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* -------------------------------------------
@@ -516,7 +535,7 @@ a {
 }
 
 .mil-arrow-link.mil-a2:after {
-  olor: #782B90;
+  color: #782B90;
 }
 
 .mil-arrow-link:hover:after {
@@ -976,9 +995,9 @@ cursor
 scrollbar
 
 ------------------------------------------- */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 .mil-progress-track {
   position: fixed;
