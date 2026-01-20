@@ -25,11 +25,14 @@ const elements = {
     btnCancelTransfer: document.getElementById('btn-cancel-transfer'),
     progressDetailContainer: document.getElementById('progress-detail-container'),
     btnTheme: document.getElementById('btn-theme'),
-    btnLang: document.getElementById('btn-lang')
+    btnLang: document.getElementById('btn-lang'),
+    toggleAutoAccept: document.getElementById('toggle-auto-accept')
 };
 
+let autoAccept = localStorage.getItem('skydrop_auto_accept') === 'true';
+
 const i18n = {
-    current: 'tr',
+    current: localStorage.getItem('skydrop_lang') || (navigator.language.startsWith('tr') ? 'tr' : 'en'),
     tr: {
         'connecting': 'Bağlanıyor...',
         'online': 'Çevrimiçi',
@@ -47,7 +50,8 @@ const i18n = {
         'hero-subtitle': 'Dosyalarınızı yerel ağdaki herhangi bir cihaza buluta yüklemeden anında gönderin.',
         'sent-success': 'Dosya başarıyla gönderildi!',
         'transfer-failed': 'Transfer başarısız oldu.',
-        'timeout': 'Bağlantı zaman aşımı. Cihaz çevrimdışı olabilir.'
+        'timeout': 'Bağlantı zaman aşımı. Cihaz çevrimdışı olabilir.',
+        'auto-download': 'Otomatik İndir'
     },
     en: {
         'connecting': 'Connecting...',
@@ -66,7 +70,8 @@ const i18n = {
         'hero-subtitle': 'Send files to any device on your current network without uploading to any cloud.',
         'sent-success': 'File sent successfully!',
         'transfer-failed': 'Transfer failed.',
-        'timeout': 'Connection timeout. Peer might be offline.'
+        'timeout': 'Connection timeout. Peer might be offline.',
+        'auto-download': 'Auto-Download'
     }
 };
 
@@ -80,9 +85,12 @@ function updateUI() {
         el.textContent = t(key);
     });
     elements.btnLang.textContent = i18n.current.toUpperCase();
+    document.documentElement.lang = i18n.current;
 }
 
 async function init() {
+    updateUI();
+
     myId = Utils.generateId();
     myName = Utils.getDeviceName();
     networkId = await Utils.getNetworkHash();
@@ -149,10 +157,15 @@ async function init() {
 
     elements.btnLang.onclick = () => {
         i18n.current = i18n.current === 'tr' ? 'en' : 'tr';
+        localStorage.setItem('skydrop_lang', i18n.current);
         updateUI();
     };
 
-    updateUI();
+    elements.toggleAutoAccept.checked = autoAccept;
+    elements.toggleAutoAccept.onchange = (e) => {
+        autoAccept = e.target.checked;
+        localStorage.setItem('skydrop_auto_accept', autoAccept);
+    };
 
     // Heartbeat every 5s
     setInterval(announcePresence, 5000);
@@ -281,7 +294,11 @@ function sendFileOffer(targetId, file) {
 function handleConnection(conn) {
     conn.on('data', (data) => {
         if (data.type === 'file-offer') {
-            showAcceptModal(data, conn);
+            if (autoAccept) {
+                conn.send({ type: 'file-accepted' });
+            } else {
+                showAcceptModal(data, conn);
+            }
         } else if (data.type === 'file-accepted') {
             elements.btnCancelTransfer.onclick = () => {
                 conn.close();

@@ -35,10 +35,9 @@
         </header>
 
         <section class="hero">
-            <div id="status" class="status-badge" data-i18n="connecting">Connecting...</div>
-            <h2 data-i18n="hero-title">Instant Sharing.</h2>
-            <p data-i18n="hero-subtitle">Send files to any device on your current network without uploading to any
-                cloud.</p>
+            <div id="status" class="status-badge" data-i18n="connecting"></div>
+            <h2 data-i18n="hero-title"></h2>
+            <p data-i18n="hero-subtitle"></p>
         </section>
 
         <main id="discovery" class="peer-grid">
@@ -47,15 +46,22 @@
                 <div class="loader-container">
                     <div class="loader"></div>
                 </div>
-                <p data-i18n="looking-devices">Looking for devices...</p>
-                <small data-i18n="open-another">Open SkyDrop on another device to start sharing</small>
+                <p data-i18n="looking-devices"></p>
+                <small data-i18n="open-another"></small>
             </div>
         </main>
 
         <footer>
             <div class="local-peer">
                 <i data-lucide="monitor"></i>
-                <span id="local-peer-name" data-i18n="detecting">Detecting device...</span>
+                <span id="local-peer-name" data-i18n="detecting"></span>
+            </div>
+            <div class="toggle-group" title="Auto-Download">
+                <span class="toggle-label" data-i18n="auto-download">Auto-Download</span>
+                <label class="switch">
+                    <input type="checkbox" id="toggle-auto-accept">
+                    <span class="slider"></span>
+                </label>
             </div>
         </footer>
     </div>
