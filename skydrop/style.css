@@ -411,6 +411,22 @@ footer {
     font-size: 15px;
 }
 
+.progress-filename {
+    font-weight: 600;
+    color: var(--text-primary) !important;
+    margin-top: -8px;
+    margin-bottom: 20px !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.progress-eta {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
 .modal-actions {
     display: flex;
     gap: 12px;

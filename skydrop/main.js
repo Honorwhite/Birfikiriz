@@ -24,6 +24,8 @@ const elements = {
     progressText: document.getElementById('progress-text'),
     btnCancelTransfer: document.getElementById('btn-cancel-transfer'),
     progressDetailContainer: document.getElementById('progress-detail-container'),
+    progressFilename: document.getElementById('progress-filename'),
+    progressEta: document.getElementById('progress-eta'),
     btnTheme: document.getElementById('btn-theme'),
     btnLang: document.getElementById('btn-lang'),
     toggleAutoAccept: document.getElementById('toggle-auto-accept')
@@ -49,9 +51,9 @@ const i18n = {
         'hero-title': 'Anında Paylaşım.',
         'hero-subtitle': 'Dosyalarınızı yerel ağdaki herhangi bir cihaza buluta yüklemeden anında gönderin.',
         'sent-success': 'Dosya başarıyla gönderildi!',
-        'transfer-failed': 'Transfer başarısız oldu.',
         'timeout': 'Bağlantı zaman aşımı. Cihaz çevrimdışı olabilir.',
-        'auto-download': 'Otomatik İndir'
+        'auto-download': 'Otomatik İndir',
+        'time-remaining': 'Kalan süre: '
     },
     en: {
         'connecting': 'Connecting...',
@@ -69,9 +71,9 @@ const i18n = {
         'hero-title': 'Instant Sharing.',
         'hero-subtitle': 'Send files to any device on your current network without uploading to any cloud.',
         'sent-success': 'File sent successfully!',
-        'transfer-failed': 'Transfer failed.',
         'timeout': 'Connection timeout. Peer might be offline.',
-        'auto-download': 'Auto-Download'
+        'auto-download': 'Auto-Download',
+        'time-remaining': 'Time remaining: '
     }
 };
 
@@ -257,7 +259,7 @@ function getIconForDevice(name) {
 }
 
 function sendFileOffer(targetId, file) {
-    showProgress(t('waiting-approval'), false);
+    showProgress(t('waiting-approval'), file.name, false);
     const conn = peer.connect(targetId, { reliable: true });
 
     elements.btnCancelTransfer.onclick = () => {
@@ -277,7 +279,8 @@ function sendFileOffer(targetId, file) {
         outgoingFileData[conn.peer] = {
             file,
             chunksSent: 0,
-            totalChunks: Math.ceil(file.size / CHUNK_SIZE)
+            totalChunks: Math.ceil(file.size / CHUNK_SIZE),
+            startTime: Date.now()
         };
 
         conn.send({
@@ -322,7 +325,7 @@ async function startFileTransfer(conn) {
     const info = outgoingFileData[conn.peer];
     if (!info) return;
 
-    showProgress(t('sending-file'), true);
+    showProgress(t('sending-file'), info.file.name, true);
 
     const dataChannel = conn.dataChannel;
     const MAX_BUFFERED_AMOUNT = 4194304; // 4MB buffer limit to keep the pipe full with 256KB chunks
@@ -349,7 +352,7 @@ async function startFileTransfer(conn) {
 
             // Update sender progress - now more accurate due to buffer tracking
             const percent = Math.round(((i + 1) / info.totalChunks) * 95); // Up to 95%, wait for ack for 100%
-            updateProgressBar(percent);
+            updateProgressBar(percent, info.startTime, (i + 1) * CHUNK_SIZE, info.file.size);
         }
 
         // Wait for buffer to clear before waiting for ack
@@ -381,9 +384,11 @@ function receiveChunk(data, conn) {
             chunks: [],
             received: 0,
             total: data.total,
-            fileName: data.fileName
+            fileName: data.fileName,
+            fileSize: data.total * CHUNK_SIZE, // Approximate for progress
+            startTime: Date.now()
         };
-        showProgress(t('receiving-file'), true);
+        showProgress(t('receiving-file'), data.fileName, true);
 
         elements.btnCancelTransfer.onclick = () => {
             conn.close();
@@ -396,7 +401,7 @@ function receiveChunk(data, conn) {
     info.received++;
 
     const percent = Math.round((info.received / info.total) * 100);
-    updateProgressBar(percent);
+    updateProgressBar(percent, info.startTime, info.received * CHUNK_SIZE, info.total * CHUNK_SIZE);
 
     if (info.received === info.total) {
         // Send completion ack to sender
@@ -425,9 +430,13 @@ function completeDownload(info) {
     }, 2000);
 }
 
-function showProgress(title, showPercentage = true) {
+function showProgress(title, fileName, showPercentage = true) {
     const progTitle = document.getElementById('progress-title');
     progTitle.textContent = title;
+
+    if (elements.progressFilename) {
+        elements.progressFilename.textContent = fileName || '';
+    }
 
     if (showPercentage) {
         elements.progressDetailContainer.classList.remove('hidden');
@@ -444,9 +453,22 @@ function hideProgress() {
     elements.progressText.textContent = '0%';
 }
 
-function updateProgressBar(percent) {
+function updateProgressBar(percent, startTime, bytesProcessed, totalBytes) {
     elements.progressBar.style.width = percent + '%';
     elements.progressText.textContent = percent + '%';
+
+    if (startTime && bytesProcessed && totalBytes && percent < 100) {
+        const elapsed = (Date.now() - startTime) / 1000;
+        const bps = bytesProcessed / elapsed;
+        const remainingBytes = totalBytes - bytesProcessed;
+        const remainingTime = remainingBytes / bps;
+
+        if (elapsed > 1) { // Wait 1s for stable speed estimate
+            elements.progressEta.textContent = t('time-remaining') + Utils.formatTime(remainingTime);
+        }
+    } else if (percent >= 100) {
+        elements.progressEta.textContent = '';
+    }
 }
 
 function showAcceptModal(data, conn) {

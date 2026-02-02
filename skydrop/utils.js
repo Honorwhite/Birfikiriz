@@ -34,5 +34,13 @@ const Utils = {
             console.warn("Could not get public IP, defaulting to global room");
             return "skydrop-global";
         }
+    },
+
+    formatTime: (seconds) => {
+        if (!isFinite(seconds) || seconds < 0) return "";
+        if (seconds < 60) return `${Math.round(seconds)}s`;
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.round(seconds % 60);
+        return `${mins}m ${secs}s`;
     }
 };
