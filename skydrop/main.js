@@ -1,4 +1,4 @@
-const CHUNK_SIZE = 16384;
+const CHUNK_SIZE = 262144; // 256KB - Optimal balance for modern WebRTC data channels
 let incomingFileData = {};
 let outgoingFileData = {};
 let mqttClient;
@@ -307,6 +307,8 @@ function handleConnection(conn) {
             startFileTransfer(conn);
         } else if (data.type === 'file-chunk') {
             receiveChunk(data, conn);
+        } else if (data.type === 'transfer-complete') {
+            handleTransferComplete(conn);
         }
     });
 
@@ -322,8 +324,16 @@ async function startFileTransfer(conn) {
 
     showProgress(t('sending-file'), true);
 
+    const dataChannel = conn.dataChannel;
+    const MAX_BUFFERED_AMOUNT = 4194304; // 4MB buffer limit to keep the pipe full with 256KB chunks
+
     try {
         for (let i = 0; i < info.totalChunks; i++) {
+            // Flow control: wait if buffer is too full
+            while (dataChannel && dataChannel.bufferedAmount > MAX_BUFFERED_AMOUNT) {
+                await new Promise(r => setTimeout(r, 20)); // Reduced latency
+            }
+
             const start = i * CHUNK_SIZE;
             const end = Math.min(start + CHUNK_SIZE, info.file.size);
             const chunk = info.file.slice(start, end);
@@ -337,22 +347,32 @@ async function startFileTransfer(conn) {
                 fileName: info.file.name
             });
 
-            const percent = Math.round(((i + 1) / info.totalChunks) * 100);
+            // Update sender progress - now more accurate due to buffer tracking
+            const percent = Math.round(((i + 1) / info.totalChunks) * 95); // Up to 95%, wait for ack for 100%
             updateProgressBar(percent);
-
-            // Flow control
-            if (i % 100 === 0) await new Promise(r => setTimeout(r, 5));
         }
 
-        setTimeout(() => {
-            hideProgress();
-            alert(t('sent-success'));
-        }, 1000);
+        // Wait for buffer to clear before waiting for ack
+        while (dataChannel && dataChannel.bufferedAmount > 0) {
+            await new Promise(r => setTimeout(r, 100));
+        }
+
+        // Progress at 98% while waiting for receiver to process
+        updateProgressBar(98);
+
     } catch (e) {
         console.error('Transfer failed', e);
         hideProgress();
         alert(t('transfer-failed'));
     }
+}
+
+function handleTransferComplete(conn) {
+    updateProgressBar(100);
+    setTimeout(() => {
+        hideProgress();
+        alert(t('sent-success'));
+    }, 500);
 }
 
 function receiveChunk(data, conn) {
@@ -379,11 +399,14 @@ function receiveChunk(data, conn) {
     updateProgressBar(percent);
 
     if (info.received === info.total) {
+        // Send completion ack to sender
+        conn.send({ type: 'transfer-complete' });
+
         setTimeout(() => {
             completeDownload(info);
             delete incomingFileData[conn.peer];
             hideProgress();
-        }, 1000);
+        }, 800);
     }
 }
 
