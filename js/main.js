@@ -183,14 +183,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (menuBtn) {
             menuBtn.classList.toggle('mil-active');
-            menuFrame.classList.toggle('mil-active');
-            btnFrame.classList.toggle('mil-active');
-            tp2.classList.toggle('mil-menu-open');
+            if (menuFrame) menuFrame.classList.toggle('mil-active');
+            if (btnFrame) btnFrame.classList.toggle('mil-active');
+            if (tp2) tp2.classList.toggle('mil-menu-open');
         } else if (event.target.closest('.mil-menu-frame') && !event.target.closest('.mil-menu-frame > *')) {
-            menuFrame.classList.remove('mil-active');
-            btnFrame.classList.remove('mil-active');
-            document.querySelector('.mil-menu-btn').classList.remove('mil-active');
-            tp2.classList.remove('mil-menu-open');
+            if (menuFrame) menuFrame.classList.remove('mil-active');
+            if (btnFrame) btnFrame.classList.remove('mil-active');
+            const mBtn = document.querySelector('.mil-menu-btn');
+            if (mBtn) mBtn.classList.remove('mil-active');
+            if (tp2) tp2.classList.remove('mil-menu-open');
         }
     });
 
@@ -199,10 +200,15 @@ document.addEventListener("DOMContentLoaded", function () {
             const href = this.getAttribute('href');
 
             if (isValidHref(href)) {
-                document.querySelector('.mil-menu-btn').classList.remove('mil-active');
-                document.querySelector('.mil-menu-frame').classList.remove('mil-active');
-                document.querySelector('.mil-buttons-tp-frame').classList.remove('mil-active');
-                document.querySelector('.mil-top-panel-2').classList.remove('mil-menu-open');
+                const mBtn = document.querySelector('.mil-menu-btn');
+                const mFrame = document.querySelector('.mil-menu-frame');
+                const bFrame = document.querySelector('.mil-buttons-tp-frame');
+                const tPanel2 = document.querySelector('.mil-top-panel-2');
+
+                if (mBtn) mBtn.classList.remove('mil-active');
+                if (mFrame) mFrame.classList.remove('mil-active');
+                if (bFrame) bFrame.classList.remove('mil-active');
+                if (tPanel2) tPanel2.classList.remove('mil-menu-open');
             } else {
                 event.preventDefault();
             }
@@ -242,14 +248,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const menuFrame = document.querySelector('.mil-menu-frame-2');
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        if (menuFrame.classList.contains('mil-active')) {
+        if (menuFrame && menuFrame.classList.contains('mil-active')) {
             return; // Stop execution if .mil-active class is present
         }
 
-        if (scrollTop > lastScrollTop) {
-            topPanel.classList.add('mil-scroll');
-        } else if (scrollTop < lastScrollTop && scrollTop === 0) {
-            topPanel.classList.remove('mil-scroll');
+        if (topPanel) {
+            if (scrollTop > lastScrollTop) {
+                topPanel.classList.add('mil-scroll');
+            } else if (scrollTop < lastScrollTop && scrollTop === 0) {
+                topPanel.classList.remove('mil-scroll');
+            }
         }
 
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -413,6 +421,56 @@ document.addEventListener("DOMContentLoaded", function () {
     // Defer non-critical animations to give browser breathing room
     requestAnimationFrame(() => {
         setTimeout(initScrollAnimations, 100);
+    });
+
+    /* -------------------------------------------
+    portfolio filter (Delegated)
+    ------------------------------------------- */
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.mil-filter-link');
+        if (!link) return;
+
+        e.preventDefault();
+        const filter = link.getAttribute('data-filter');
+        const filterLinks = document.querySelectorAll('.mil-filter-link');
+        const items = document.querySelectorAll('.mil-portfolio-item');
+
+        filterLinks.forEach(l => l.classList.remove('mil-active'));
+        link.classList.add('mil-active');
+
+        items.forEach(item => {
+            const category = item.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+                item.classList.remove('mil-hidden');
+                gsap.to(item, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.4,
+                    ease: 'sine',
+                    clearProps: 'all',
+                    onStart: () => {
+                        item.style.display = 'block';
+                    }
+                });
+            } else {
+                item.classList.add('mil-hidden');
+                gsap.to(item, {
+                    opacity: 0,
+                    scale: 0.9,
+                    duration: 0.4,
+                    ease: 'sine',
+                    onComplete: () => {
+                        if (item.classList.contains('mil-hidden')) {
+                            item.style.display = 'none';
+                        }
+                    }
+                });
+            }
+        });
+
+        setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 450);
     });
 
     /* -------------------------------------------
@@ -725,10 +783,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 const href = this.getAttribute('href');
 
                 if (isValidHref(href)) {
-                    document.querySelector('.mil-menu-btn').classList.remove('mil-active');
-                    document.querySelector('.mil-menu-frame').classList.remove('mil-active');
-                    document.querySelector('.mil-buttons-tp-frame').classList.remove('mil-active');
-                    document.querySelector('.mil-top-panel-2').classList.remove('mil-menu-open');
+                    const mBtn = document.querySelector('.mil-menu-btn');
+                    const mFrame = document.querySelector('.mil-menu-frame');
+                    const bFrame = document.querySelector('.mil-buttons-tp-frame');
+                    const tPanel2 = document.querySelector('.mil-top-panel-2');
+
+                    if (mBtn) mBtn.classList.remove('mil-active');
+                    if (mFrame) mFrame.classList.remove('mil-active');
+                    if (bFrame) bFrame.classList.remove('mil-active');
+                    if (tPanel2) tPanel2.classList.remove('mil-menu-open');
                 } else {
                     event.preventDefault(); // Якщо href невалідний, зупиняємо дію за замовчуванням
                 }
@@ -1022,6 +1085,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
+
+
 
         var swiper = new Swiper('.mil-project-slider', {
             parallax: true,

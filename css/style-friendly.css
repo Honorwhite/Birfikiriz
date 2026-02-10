@@ -5268,7 +5268,7 @@ portfolio
 }
 
 .mil-work-card .mil-hover-overlay {
-  background-color: rgba(55, 204, 141, 0.7);
+  background-color: rgba(120, 43, 144, 0.7);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -5340,6 +5340,80 @@ portfolio
 .mil-work-card:hover .mil-hover-overlay .mil-descr {
   -webkit-transform: none;
   transform: none;
+}
+
+/* -------------------------------------------
+
+portfolio filter
+
+------------------------------------------- */
+.mil-filter {
+  margin-bottom: 40px;
+}
+
+.mil-filter-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.mil-filter-links li {
+  margin: 0 15px 15px;
+}
+
+.mil-filter-link {
+  font-family: "Anton", sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #353639;
+  letter-spacing: 1px;
+  -webkit-transition: 0.3s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.3s cubic-bezier(0, 0, 0.3642, 1);
+  position: relative;
+  display: inline-block;
+}
+
+.mil-filter-link:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #782B90;
+  bottom: -5px;
+  left: 0;
+  -webkit-transition: 0.3s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.3s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-filter-link:hover,
+.mil-filter-link.mil-active {
+  color: #782B90;
+}
+
+.mil-filter-link:hover:after,
+.mil-filter-link.mil-active:after {
+  width: 100%;
+}
+
+.mil-portfolio-item {
+  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+
+.mil-portfolio-item.mil-hidden {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  pointer-events: none;
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
 }
 
 .mil-project-img {
