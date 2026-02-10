@@ -41,68 +41,69 @@ document.addEventListener("DOMContentLoaded", function () {
     */
 
     /* -------------------------------------------
-
     preloader
-
     ------------------------------------------- */
-
-    var timeline = gsap.timeline();
-
-    timeline
-        .to(".mil-preloader-animation", {
-            opacity: 1,
-            ease: 'sine'
-        })
-        .fromTo(".mil-animation-1 p", {
-            y: "30px",
-            opacity: 0,
-            scale: .8,
-            ease: 'sine'
-        }, {
-            y: "0px",
-            opacity: 1,
-            scale: 1,
-            stagger: 0.3,
-            webkitFilter: "blur(0px)"
-        })
-        .to(".mil-animation-1 p", {
-            opacity: 0,
-            y: '-30'
-        }, "+=0.3")
-        .fromTo(".mil-reveal-box", 0.1, {
-            x: 0
-        }, {
-            x: '-30'
-        })
-        .to(".mil-reveal-box", 0.45, {
-            width: "100%",
-            x: 0
-        }, "+=0.1")
-        .to(".mil-reveal-box", {
-            right: "0"
-        })
-        .to(".mil-reveal-box", 0.3, {
-            width: "0%"
-        })
-        .fromTo(".mil-animation-2 p", {
-            opacity: 0
-        }, {
-            opacity: 1
-        }, "-=0.5")
-        .to(".mil-animation-2 p", 0.6, {
-            opacity: 0,
-            y: '-30'
-        }, "+=0.5")
-        .to(".mil-preloader", 0.8, {
-            opacity: 0,
-            ease: 'sine'
-        }, "+=0.2")
-        .add(() => {
-            ScrollTrigger.refresh();
-        }, "-=1")
-        .add(() => {
-            document.querySelector('.mil-preloader').classList.add('mil-hidden');
-        });
+    var preloader = document.querySelector('.mil-preloader');
+    if (preloader) {
+        var timeline = gsap.timeline();
+        timeline
+            .to(".mil-preloader-animation", {
+                opacity: 1,
+                ease: 'sine'
+            })
+            .fromTo(".mil-animation-1 p", {
+                y: "30px",
+                opacity: 0,
+                scale: .8,
+                ease: 'sine'
+            }, {
+                y: "0px",
+                opacity: 1,
+                scale: 1,
+                stagger: 0.3,
+                webkitFilter: "blur(0px)"
+            })
+            .to(".mil-animation-1 p", {
+                opacity: 0,
+                y: '-30'
+            }, "+=0.3")
+            .fromTo(".mil-reveal-box", 0.1, {
+                x: 0
+            }, {
+                x: '-30'
+            })
+            .to(".mil-reveal-box", 0.45, {
+                width: "100%",
+                x: 0
+            }, "+=0.1")
+            .to(".mil-reveal-box", {
+                right: "0"
+            })
+            .to(".mil-reveal-box", 0.3, {
+                width: "0%"
+            })
+            .fromTo(".mil-animation-2 p", {
+                opacity: 0
+            }, {
+                opacity: 1
+            }, "-=0.5")
+            .to(".mil-animation-2 p", 0.6, {
+                opacity: 0,
+                y: '-30'
+            }, "+=0.5")
+            .to(".mil-preloader", 0.8, {
+                opacity: 0,
+                ease: 'sine'
+            }, "+=0.2")
+            .add(() => {
+                ScrollTrigger.refresh();
+            }, "-=1")
+            .add(() => {
+                preloader.classList.add('mil-hidden');
+            });
+    } else {
+        ScrollTrigger.refresh();
+    }
 
     /* -------------------------------------------
 
@@ -299,60 +300,63 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /* -------------------------------------------
-
-    ruber letters
-
+    rubber letters
     ------------------------------------------- */
-    const headings = document.querySelectorAll('.mil-rubber');
+    function initRubberLetters() {
+        const headings = document.querySelectorAll('.mil-rubber');
+        headings.forEach(heading => {
+            if (heading.classList.contains('mil-ready')) return;
 
-    headings.forEach(heading => {
-        const textNodes = [];
-
-        heading.childNodes.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-                node.textContent.split(' ').forEach((word, index, array) => {
-                    const wordSpan = document.createElement('span');
-                    wordSpan.classList.add('mil-word-span');
-                    word.split('').forEach(letter => {
-                        const letterSpan = document.createElement('span');
-                        letterSpan.classList.add('mil-letter-span');
-                        letterSpan.textContent = letter;
-                        wordSpan.appendChild(letterSpan);
+            const fragment = document.createDocumentFragment();
+            heading.childNodes.forEach(node => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const words = node.textContent.split(' ');
+                    words.forEach((word, index) => {
+                        const wordSpan = document.createElement('span');
+                        wordSpan.classList.add('mil-word-span');
+                        word.split('').forEach(letter => {
+                            const letterSpan = document.createElement('span');
+                            letterSpan.classList.add('mil-letter-span');
+                            letterSpan.textContent = letter;
+                            wordSpan.appendChild(letterSpan);
+                        });
+                        fragment.appendChild(wordSpan);
+                        if (index < words.length - 1) {
+                            fragment.appendChild(document.createTextNode(' '));
+                        }
                     });
-                    textNodes.push(wordSpan);
-                    if (index < array.length - 1) {
-                        textNodes.push(document.createTextNode(' '));
-                    }
-                });
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                textNodes.push(node.cloneNode(true));
-            }
-        });
-
-        heading.innerHTML = '';
-        textNodes.forEach(node => heading.appendChild(node));
-
-        const letters = heading.querySelectorAll('.mil-letter-span');
-        letters.forEach(letter => {
-            letter.addEventListener('mouseenter', () => {
-                gsap.to(letter, {
-                    scaleY: 1.1,
-                    y: '-5%',
-                    duration: 0.2,
-                    ease: 'sine'
-                });
+                } else {
+                    fragment.appendChild(node.cloneNode(true));
+                }
             });
 
-            letter.addEventListener('mouseleave', () => {
-                gsap.to(letter, {
-                    scaleY: 1,
-                    y: '0%',
-                    duration: 0.2,
-                    ease: 'sine'
+            heading.innerHTML = '';
+            heading.appendChild(fragment);
+            heading.classList.add('mil-ready');
+
+            const letters = heading.querySelectorAll('.mil-letter-span');
+            letters.forEach(letter => {
+                letter.addEventListener('mouseenter', () => {
+                    gsap.to(letter, {
+                        scaleY: 1.1,
+                        y: '-5%',
+                        duration: 0.2,
+                        ease: 'sine'
+                    });
+                });
+
+                letter.addEventListener('mouseleave', () => {
+                    gsap.to(letter, {
+                        scaleY: 1,
+                        y: '0%',
+                        duration: 0.2,
+                        ease: 'sine'
+                    });
                 });
             });
         });
-    });
+    }
+    initRubberLetters();
 
     /* -------------------------------------------
 
@@ -385,26 +389,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /* -------------------------------------------
-
     scroll animation
-
     ------------------------------------------- */
-    const appearance = document.querySelectorAll(".mil-up");
-    appearance.forEach((section) => {
-        gsap.fromTo(section, {
-            opacity: 0,
-            y: 40,
-            scale: 1.04,
-            ease: 'sine',
-        }, {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            scrollTrigger: {
-                trigger: section,
-                toggleActions: 'play none none reverse',
-            }
+    function initScrollAnimations() {
+        const appearance = document.querySelectorAll(".mil-up");
+        appearance.forEach((section) => {
+            gsap.fromTo(section, {
+                opacity: 0,
+                y: 40,
+                scale: 1.04,
+                ease: 'sine',
+            }, {
+                y: 0,
+                opacity: 1,
+                scale: 1,
+                scrollTrigger: {
+                    trigger: section,
+                    toggleActions: 'play none none reverse',
+                }
+            });
         });
+    }
+    // Defer non-critical animations to give browser breathing room
+    requestAnimationFrame(() => {
+        setTimeout(initScrollAnimations, 100);
     });
 
     /* -------------------------------------------
@@ -782,61 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        /* -------------------------------------------
-
-        ruber letters
-
-        ------------------------------------------- */
-        const headings = document.querySelectorAll('.mil-rubber');
-
-        headings.forEach(heading => {
-            const textNodes = [];
-
-            heading.childNodes.forEach(node => {
-                if (node.nodeType === Node.TEXT_NODE) {
-                    node.textContent.split(' ').forEach((word, index, array) => {
-                        const wordSpan = document.createElement('span');
-                        wordSpan.classList.add('mil-word-span');
-                        word.split('').forEach(letter => {
-                            const letterSpan = document.createElement('span');
-                            letterSpan.classList.add('mil-letter-span');
-                            letterSpan.textContent = letter;
-                            wordSpan.appendChild(letterSpan);
-                        });
-                        textNodes.push(wordSpan);
-                        if (index < array.length - 1) {
-                            textNodes.push(document.createTextNode(' '));
-                        }
-                    });
-                } else if (node.nodeType === Node.ELEMENT_NODE) {
-                    textNodes.push(node.cloneNode(true));
-                }
-            });
-
-            heading.innerHTML = '';
-            textNodes.forEach(node => heading.appendChild(node));
-
-            const letters = heading.querySelectorAll('.mil-letter-span');
-            letters.forEach(letter => {
-                letter.addEventListener('mouseenter', () => {
-                    gsap.to(letter, {
-                        scaleY: 1.1,
-                        y: '-5%',
-                        duration: 0.2,
-                        ease: 'sine'
-                    });
-                });
-
-                letter.addEventListener('mouseleave', () => {
-                    gsap.to(letter, {
-                        scaleY: 1,
-                        y: '0%',
-                        duration: 0.2,
-                        ease: 'sine'
-                    });
-                });
-            });
-        });
+        initRubberLetters();
 
 
         /* -------------------------------------------
@@ -869,28 +823,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
-        /* -------------------------------------------
-
-        scroll animation
-
-        ------------------------------------------- */
-        const appearance = document.querySelectorAll(".mil-up");
-        appearance.forEach((section) => {
-            gsap.fromTo(section, {
-                opacity: 0,
-                y: 40,
-                scale: 1.04,
-                ease: 'sine',
-            }, {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                scrollTrigger: {
-                    trigger: section,
-                    toggleActions: 'play none none reverse',
-                }
-            });
-        });
+        initScrollAnimations();
 
         /* -------------------------------------------
 
