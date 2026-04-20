@@ -174,8 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function processImage() {
         const rows = currentMode / 3;
-        const targetW = 3104;
-        const targetH = 1350 * rows;
+        const targetW = 6208;
+        const targetH = 2700 * rows;
         const t = translations[currentLang];
 
         tempCanvas.width = targetW;
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resultsGrid.innerHTML = '';
 
-        const colOffsets = [0, 1012, 2024];
+        const colOffsets = [0, 2024, 4048];
 
         for (let r = 0; r < rows; r++) {
             for (let c = 0; c < 3; c++) {
@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const rowName = rows > 1 ? `${r + 1}. ${t.rowText} ` : '';
                 const partName = `${rowName}${t.colNames[c]} ${t.partText} (${partIndex})`;
                 const startX = colOffsets[c];
-                const startY = r * 1350;
+                const startY = r * 2700;
 
                 createResultItem(partName, startX, startY, partIndex);
             }
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         item.innerHTML = `
             <span class="tag">${name}</span>
             <div class="result-canvas-container">
-                <canvas width="1080" height="1350" style="width:100%; border-radius:12px;"></canvas>
+                <canvas width="2160" height="2700" style="width:100%; border-radius:12px;"></canvas>
             </div>
             <a href="#" class="btn btn-download" download="parca-${index}.jpg">
                 <i class="fa-solid fa-download"></i> ${t.downloadBtn}
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const canvas = item.querySelector('canvas');
         const downloadBtn = item.querySelector('.btn-download');
         const ctx = canvas.getContext('2d');
-        ctx.drawImage(tempCanvas, startX, startY, 1080, 1350, 0, 0, 1080, 1350);
+        ctx.drawImage(tempCanvas, startX, startY, 2160, 2700, 0, 0, 2160, 2700);
         downloadBtn.href = canvas.toDataURL('image/jpeg', 0.92);
         resultsGrid.appendChild(item);
     }

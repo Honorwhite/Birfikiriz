@@ -299,7 +299,7 @@ header p {
 
 .result-canvas-container {
     width: 100%;
-    aspect-ratio: 1080 / 1350;
+    aspect-ratio: 2160 / 2700;
     border-radius: 12px;
     overflow: hidden;
     background: #000;
